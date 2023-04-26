@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import {AuthModuleModule} from "./auth-module/auth-module.module";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    AuthModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
