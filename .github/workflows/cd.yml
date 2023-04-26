@@ -21,7 +21,7 @@ jobs:
         run: npm install && npm run build
 
       - name: Deploy app build to S3 bucket
-        run: aws s3 sync ./dist s3://game7-app --delete
+        run: aws s3 sync ./dist/game7-app/ s3://game7-app/ --delete
 
       - name: Invalidate cache
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/*"
