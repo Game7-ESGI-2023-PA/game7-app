@@ -56,10 +56,6 @@ $game7-app-accent: mat.define-palette(mat.$green-palette);
 // The warn palette is optional (defaults to red).
 $game7-app-warn: mat.define-palette(mat.$red-palette);
 
-$game7-typography: mat.define-typography-config(
-  $font-family: 'Open Sans',
-);
-
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
 $game7-app-theme: mat.define-light-theme((
@@ -68,7 +64,6 @@ $game7-app-theme: mat.define-light-theme((
     accent: $game7-app-accent,
     warn: $game7-app-warn,
   ),
-  typography: $game7-typography
 ));
 
 // Include theme styles for core and each component used in your app.
