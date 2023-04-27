@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../shared/services/auth.service";
 import {Router} from "@angular/router";
+import {AuthService} from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ export class LoginComponent  {
   form: FormGroup;
 
   constructor(private fb:FormBuilder,
-              // private authService: AuthService,
+              private authService: AuthService,
               private router: Router) {
     this.form = this.fb.group({
       email: ['',Validators.required],
@@ -21,17 +21,19 @@ export class LoginComponent  {
   }
 
 
-  // login() {
-  //   const val = this.form.value;
-  //   if (val.email && val.password) {
-  //     this.authService.login(val.email, val.password)
-  //       .subscribe(
-  //         () => {
-  //           console.log("User is logged in");
-  //           this.router.navigateByUrl('/');
-  //         }
-  //       );
-  //   }
-  // }
+   login() {
+     const val = this.form.value;
+     if (val.email && val.password) {
+       this.authService.login(val.email, val.password)
+         .subscribe(
+           (authResult: any) => {
+             console.log(authResult);
+             console.log("User is logged in");
+             this.authService.setSession(authResult);
+             this.router.navigateByUrl('/');//TODO redircetion
+           }
+         );
+     }
+   }
 
 }

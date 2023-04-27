@@ -14,7 +14,7 @@ export class AuthService {
                                                                                             // TODO change type from any to User
   }
 
-  private setSession(authResult :any) {     // TODO change type from any
+  public setSession(authResult :any) {     // TODO change type from any
     const expiresAt = moment().add(authResult.expiresIn,'second');
 
     localStorage.setItem('id_token', authResult.idToken);

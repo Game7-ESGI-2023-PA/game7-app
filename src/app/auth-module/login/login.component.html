@@ -4,28 +4,32 @@
       <legend>Login</legend>
       <p>
         <mat-form-field appearance="fill">
-          <mat-label>Fill form field</mat-label>
-          <input name="email" matInput placeholder="email" formControlName="email">
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-label>Mail :</mat-label>
+          <input
+            name="email"
+            matInput placeholder="email"
+            formControlName="email"
+          >
           <mat-hint>Hint</mat-hint>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field appearance="fill">
-          <mat-label>Fill form field</mat-label>
+          <mat-label>Password :</mat-label>
           <input matInput placeholder="password"
                  name="password"
                  formControlName="password"
                  type="password">
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
           <mat-hint>Hint</mat-hint>
         </mat-form-field>
       </p>
+      <div class="form-buttons">
+        <button
+          mat-raised-button color="primary"
+          (click)="login()">Login
+        </button>
+      </div>
     </fieldset>
-<!--    <div class="form-buttons">-->
-<!--      <button class="button button-primary"-->
-<!--              (click)="login()">Login</button>-->
-<!--    </div>-->
   </form>
 
 </div>

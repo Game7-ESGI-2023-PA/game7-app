@@ -1,4 +1,6 @@
-.login-form {
+.register-container{
+  display: flex;
+  flex-direction: column;
   color: white;
   position: fixed;
   top: 50%;
@@ -10,3 +12,6 @@
   display: flex;
   justify-content: center;
 }
+
+
+

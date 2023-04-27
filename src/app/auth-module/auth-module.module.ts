@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {HttpClientModule} from "@angular/common/http";
+import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 
 
 
@@ -16,7 +20,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class AuthModuleModule { }

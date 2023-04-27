@@ -10,8 +10,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AuthInterceptorInterceptor implements HttpInterceptor {
 
-  c intercept(req: HttpRequest<any>,
-              next: HttpHandler): Observable<HttpEvent<any>> {
+   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     const idToken = localStorage.getItem("id_token");
 
@@ -21,8 +20,7 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
       });
 
       return next.handle(cloned);
-    }
-    else {
+    } else {
       return next.handle(req);
     }
   }
