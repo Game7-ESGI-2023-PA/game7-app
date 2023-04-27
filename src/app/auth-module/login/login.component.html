@@ -1,18 +1,31 @@
-<form [formGroup]="form" class="longin-form">
-  <fieldset>
-    <legend>Login</legend>
-    <div class="form-field">
-      <label>Email:</label>
-      <input name="email" formControlName="email">
-    </div>
-    <div class="form-field">
-      <label>Password:</label>
-      <input name="password" formControlName="password"
-             type="password">
-    </div>
-  </fieldset>
-  <div class="form-buttons">
-    <button class="button button-primary"
-            (click)="login()">Login</button>
-  </div>
-</form>
+<div>
+  <form [formGroup]="form" class="login-form">
+    <fieldset>
+      <legend>Login</legend>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Fill form field</mat-label>
+          <input name="email" matInput placeholder="email" formControlName="email">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Fill form field</mat-label>
+          <input matInput placeholder="password"
+                 name="password"
+                 formControlName="password"
+                 type="password">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </p>
+    </fieldset>
+<!--    <div class="form-buttons">-->
+<!--      <button class="button button-primary"-->
+<!--              (click)="login()">Login</button>-->
+<!--    </div>-->
+  </form>
+
+</div>
