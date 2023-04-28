@@ -1,0 +1,17 @@
+.register-container{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+
+
