@@ -22,7 +22,7 @@ export class UnAuthorizedInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     return next.handle(request.clone()).pipe(
       tap({
-        error: (err: any) => {
+        error: (err) => {
           if (err instanceof HttpErrorResponse) {
             if (
               err.status === 401 &&

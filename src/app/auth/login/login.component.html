@@ -1,26 +1,26 @@
 <div>
   <form [formGroup]="form" class="login-form">
-      <legend>Login</legend>
-      <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Mail :</mat-label>
-          <input name="email" matInput placeholder="email" formControlName="email" />
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Password :</mat-label>
-          <input
-            matInput
-            placeholder="password"
-            name="password"
-            formControlName="password"
-            type="password"
-          />
-        </mat-form-field>
-      </p>
-      <div class="form-buttons">
-        <button mat-raised-button color="primary" (click)="login()">Login</button>
-      </div>
+    <legend>Login</legend>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Mail :</mat-label>
+        <input name="email" matInput placeholder="email" formControlName="email" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Password :</mat-label>
+        <input
+          matInput
+          placeholder="password"
+          name="password"
+          formControlName="password"
+          type="password"
+        />
+      </mat-form-field>
+    </p>
+    <div class="form-buttons">
+      <button mat-raised-button color="primary" (click)="login()">Login</button>
+    </div>
   </form>
 </div>

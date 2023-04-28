@@ -20,13 +20,7 @@
       <div>
         <mat-form-field appearance="fill">
           <mat-label>Entrer votre pseudonyme</mat-label>
-          <input
-            type="text"
-            matInput
-            placeholder="pat"
-            formControlName="nickname"
-            required
-          />
+          <input type="text" matInput placeholder="pat" formControlName="nickname" required />
           <mat-error *ngIf="emailCheck">
             {{ '' }}
           </mat-error>

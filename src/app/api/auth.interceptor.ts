@@ -11,7 +11,7 @@ import { AuthService } from '../shared/services/auth.service';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     const idToken = AuthService.getToken();
 

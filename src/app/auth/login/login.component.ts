@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../shared/services/auth.service";
@@ -8,7 +8,7 @@ import {AuthService} from "../../shared/services/auth.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent  {
+export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({});;
 
   constructor(private fb:FormBuilder,
