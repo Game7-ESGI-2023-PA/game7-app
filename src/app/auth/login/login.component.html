@@ -1,12 +1,10 @@
 <div>
   <form [formGroup]="form" class="login-form">
-    <fieldset>
       <legend>Login</legend>
       <p>
         <mat-form-field appearance="fill">
           <mat-label>Mail :</mat-label>
           <input name="email" matInput placeholder="email" formControlName="email" />
-          <mat-hint>Hint</mat-hint>
         </mat-form-field>
       </p>
       <p>
@@ -19,12 +17,10 @@
             formControlName="password"
             type="password"
           />
-          <mat-hint>Hint</mat-hint>
         </mat-form-field>
       </p>
       <div class="form-buttons">
         <button mat-raised-button color="primary" (click)="login()">Login</button>
       </div>
-    </fieldset>
   </form>
 </div>
