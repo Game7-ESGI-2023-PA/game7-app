@@ -10,9 +10,6 @@
   </div>
 </div>
 
-<!-- <div class="card-container">
-  <mat-card *ngFor="let result of searchResults">
-    <mat-card-title>{{result.title}}</mat-card-title>
-    <mat-card-content>{{result.description}}</mat-card-content>
-  </mat-card>
-</div> -->
+<div class="card-container">
+  <app-user-card *ngFor="let result of searchResults" nickname="result.nickname"></app-user-card>
+</div>

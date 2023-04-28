@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class UserCardComponent implements OnInit {
 
-  @Input() username: string | undefined;
+  @Input() nickname: string | undefined;
   @Input() photoUrl: string | undefined;
   constructor() { }
 
