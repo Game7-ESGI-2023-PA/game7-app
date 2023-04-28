@@ -9,11 +9,15 @@ import {AuthService} from "../../shared/services/auth.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent  {
-  form: FormGroup;
+  form: FormGroup = new FormGroup({});;
 
   constructor(private fb:FormBuilder,
               private authService: AuthService,
               private router: Router) {
+
+  }
+
+  ngOnInit() {
     this.form = this.fb.group({
       email: ['',Validators.required],
       password: ['',Validators.required]
@@ -21,18 +25,21 @@ export class LoginComponent  {
   }
 
 
-   login() {
+  login() {
      const val = this.form.value;
      if (val.email && val.password) {
-       this.authService.login(val.email, val.password)
-         .subscribe(
-           (authResult: any) => {
-             console.log(authResult);
-             console.log("User is logged in");
-             this.authService.setSession(authResult);
-             this.router.navigateByUrl('/');//TODO redircetion
-           }
-         );
+       this.authService.login({
+        email: val.email,
+        password: val.password
+       })
+         .subscribe({
+            next: () => {
+              this.router.navigate(['/']); // TODO redirect to home
+            },
+            error: (err) => {
+              console.log(err); // TODO error management
+            }
+         });
      }
    }
 

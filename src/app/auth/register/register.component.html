@@ -1,19 +1,34 @@
-
 <div class="register-container">
   <fieldset>
     <legend>Inscription</legend>
-    <form [formGroup]="form" (ngSubmit)="signUp()" >
+    <form [formGroup]="form" (ngSubmit)="register()">
       <div>
         <mat-form-field appearance="fill">
           <mat-label>Entrer votre email</mat-label>
           <input
-            type="text"
-            matInput placeholder="pat@example.com"
+            type="email"
+            matInput
+            placeholder="pat@example.com"
             formControlName="email"
             required
-          >
+          />
           <mat-error *ngIf="emailCheck">
-            {{""}}
+            {{ '' }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Entrer votre pseudonyme</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="pat"
+            formControlName="nickname"
+            required
+          />
+          <mat-error *ngIf="emailCheck">
+            {{ '' }}
           </mat-error>
         </mat-form-field>
       </div>
@@ -22,10 +37,13 @@
           <mat-label>Entrer votre mot de passe</mat-label>
           <input
             type="password"
-            matInput placeholder="mot de passe"
-            formControlName="password" required>
+            matInput
+            placeholder="mot de passe"
+            formControlName="password"
+            required
+          />
           <mat-error *ngIf="passwordCheck">
-            {{"getErrorMessage"}}
+            {{ 'getErrorMessage' }}
           </mat-error>
         </mat-form-field>
       </div>
@@ -34,11 +52,12 @@
           <mat-label>Confirmer votre mot de passe</mat-label>
           <input
             type="password"
-            matInput placeholder=" confirmation mot de passe"
+            matInput
+            placeholder=" confirmation mot de passe"
             formControlName="confirmPassword"
             required
-          >
-          <mat-error *ngIf="confirmPasswordCheck">{{"getErrorMessage"}}</mat-error>
+          />
+          <mat-error *ngIf="confirmPasswordCheck">{{ 'getErrorMessage' }}</mat-error>
         </mat-form-field>
       </div>
       <div>
@@ -47,5 +66,3 @@
     </form>
   </fieldset>
 </div>
-
-

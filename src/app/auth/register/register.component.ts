@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {RegisterService} from "../shared/services/register.service";
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +9,7 @@ import {RegisterService} from "../shared/services/register.service";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  form: FormGroup;
+  form: FormGroup = new FormGroup({});
 
   emailCheck = false;
   passwordCheck = false;
@@ -18,9 +18,13 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private registerService :RegisterService) {
+    private auth: AuthService,
+  ) {}
+
+  ngOnInit() {
     this.form = this.fb.group({//TODO add lenght check
       email: ['', [Validators.required, Validators.email]],
+      nickname: ['', [Validators.required]],
       password: ['', [Validators.required]],
       confirmPassword: ['', [Validators.required, this.confirmationPassword()]]
     });
@@ -38,23 +42,25 @@ export class RegisterComponent {
       return password === confirmPassword ? null : { mismatch: true };
     };
   }
-  signUp() {
+
+  register() {
     if(this.form) {
       const val = this.form.value;
       if (val.email && val.password ) {
-        this.registerService.signUp(val.email as string, val.password as string).subscribe(
-          (requetResult: any) => {
-            console.log("requetResult : " + requetResult); //TODO add redirection
+        this.auth.register({
+          email: val.email as string,
+          nickname: val.nickname as string,
+          plainPassword: val.password as string
+        }).subscribe({
+          next: () => {
+            this.router.navigate(['/login'])
           },
-          (error:any) => {
-            console.log(error)
+          error: (error) => {
+            // TODO: error management
+            console.log(error);
           }
-        );
+        });
       }
     }
   }
-
-
-
-
 }

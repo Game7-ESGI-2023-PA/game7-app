@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import * as moment from "moment";
+import { tap } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,34 +10,50 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  login(email:string, password:string ) {
-    return this.http.post<any>('https://api.game7app.com/auth', {email, password});//TODO check if its write good url
-                                                                                            // TODO change type from any to User
+  login(loginCredentials: LoginRequest) {
+    return this.http.post<JwtTokenResponse>('/auth', loginCredentials)
+      .pipe(
+        tap((res: JwtTokenResponse) => {
+          AuthService.storeToken(res.token)
+        }),
+      );
   }
 
-  public setSession(authResult :any) {     // TODO change type from any
-    const expiresAt = moment().add(authResult.expiresIn,'second');
+  public static isAuthenticated(): boolean {
+    const token = AuthService.getToken();
+    return token !== null;
+  }
 
-    localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+  public static getToken() {
+    return localStorage.getItem('id_token');
+  }
+
+  private static storeToken(token: string) {
+    localStorage.setItem('id_token', token);
   }
 
   logout() {
     localStorage.removeItem("id_token");
-    localStorage.removeItem("expires_at");
   }
 
-  public isLoggedIn() {
-    return moment().isBefore(this.getExpiration());
-  }
-
-  isLoggedOut() {
-    return !this.isLoggedIn();
-  }
-
-  getExpiration() {
-    const expiration = localStorage.getItem("expires_at");
-    const expiresAt = JSON.parse(expiration as string);
-    return moment(expiresAt);
+  register(credentials: RegisterRequest) {
+    return this.http.post('/register', credentials);
   }
 }
+
+export interface JwtTokenResponse {
+  token: string;
+}
+
+export interface LoginRequest {
+  email: string;
+  password: string;
+}
+
+// TODO use this
+export interface RegisterRequest {
+  email: string;
+  nickname: string;
+  plainPassword: string;
+}
+
