@@ -4,7 +4,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {HttpClientModule} from "@angular/common/http";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
@@ -23,7 +22,6 @@ import {MatButtonModule} from "@angular/material/button";
     CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    HttpClientModule,
     MatInputModule,
     MatIconModule,
     MatButtonModule
