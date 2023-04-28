@@ -4,12 +4,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    NavbarComponent,
-  ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-  ]
+    declarations: [
+        NavbarComponent,
+    ],
+    exports: [
+        NavbarComponent
+    ],
+    imports: [
+        CommonModule,
+        HttpClientModule,
+    ]
 })
 export class SharedModule { }
