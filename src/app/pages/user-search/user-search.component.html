@@ -1,0 +1,18 @@
+<div style="text-align: center; margin-top: 5vh;">
+  <h1 style="font-size: 50px;"><span style="color: #44D62C">Rechercher</span> un Joueur</h1>
+  <div class="search-container">
+    <mat-form-field class="search-bar">
+      <input matInput placeholder="Search..." #searchInput>
+    </mat-form-field>
+    <div class="search-button-container">
+      <button mat-raised-button color="primary" class="search-button" (click)="search(searchInput.value)">Search</button>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="card-container">
+  <mat-card *ngFor="let result of searchResults">
+    <mat-card-title>{{result.title}}</mat-card-title>
+    <mat-card-content>{{result.description}}</mat-card-content>
+  </mat-card>
+</div> -->

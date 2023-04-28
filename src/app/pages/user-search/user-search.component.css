@@ -1,0 +1,25 @@
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 20px;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-bar {
+  flex: 1;
+  margin-right: 30px;
+}
+
+.search-bar-container,
+.search-button-container {
+  display: flex;
+  align-items: stretch;
+}
+
+.search-button {
+  min-width: 80px;
+  min-height: 100%;
+}
