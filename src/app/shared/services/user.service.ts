@@ -10,7 +10,7 @@ export class UserService {
   }
 
   search(query: string) {
-    return this.http.get<UserInterface[]>(`/user?nickname=${query}`);
+    return this.http.get<UserInterface[]>(`/users?nickname=${query}`);
   }
 
 }
