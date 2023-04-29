@@ -11,7 +11,7 @@ export class AuthService {
   }
 
   login(loginCredentials: LoginRequest) {
-    return this.http.post<JwtTokenResponse>('/auth', loginCredentials)
+    return this.http.post<JwtTokenResponse>('/login', loginCredentials)
       .pipe(
         tap((res: JwtTokenResponse) => {
           AuthService.storeToken(res.token)
