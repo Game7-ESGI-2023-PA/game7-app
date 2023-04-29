@@ -5,3 +5,9 @@ body {
   color: white;
   font-family: 'Roboto';
 }
+
+/* TODO: custom theme instead of this*/
+button {
+  font-family: 'Roboto';
+  font-size: 15px;
+}

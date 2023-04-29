@@ -4,6 +4,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PagesComponent } from './pages/pages.component';
 import { UserSearchComponent } from './pages/user-search/user-search.component';
+import { authGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       {
         path: 'user-search',
         data: { title: 'Rechercer un joueur' },
+        canActivate: [authGuard],
         component: UserSearchComponent,
       },
     ],

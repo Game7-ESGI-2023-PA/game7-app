@@ -18,7 +18,6 @@ export class UserSearchComponent {
     this.userService.search(input).subscribe({
       next: (results) => {
         this.searchResults = results;
-        console.log(results);
       }
     })
   }

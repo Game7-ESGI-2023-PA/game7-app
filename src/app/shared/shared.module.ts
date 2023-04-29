@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,6 @@ import {MatButtonModule} from "@angular/material/button";
     MatCardModule,
     MatButtonModule,
     NgOptimizedImage,
-  ]
+  ],
 })
 export class SharedModule { }
