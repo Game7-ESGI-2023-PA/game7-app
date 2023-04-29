@@ -1,7 +1,7 @@
 .search-container {
   display: flex;
+  align-items: start;
   justify-content: center;
-  align-items: stretch;
   margin-top: 20px;
   max-width: 50%;
   margin-left: auto;
@@ -11,17 +11,12 @@
 .search-bar {
   flex: 1;
   margin-right: 30px;
-}
-
-.search-bar-container,
-.search-button-container {
-  display: flex;
-  align-items: stretch;
+  padding: 0;
 }
 
 .search-button {
-  min-width: 80px;
-  min-height: 100%;
+  align-self: flex-start;
+  height: 55px;
 }
 
 .card-container {
