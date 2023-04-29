@@ -1,0 +1,13 @@
+<div style="text-align: center; margin-top: 5vh;">
+  <h1 style="font-size: 50px;"><span style="color: #44D62C">Rechercher</span> un Joueur</h1>
+  <div class="search-container">
+    <mat-form-field class="search-bar">
+      <input matInput placeholder="Entrer le pseudo du Joueur..." #searchInput>
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="search-button" (click)="search(searchInput.value)">Rechercher</button>
+  </div>
+</div>
+
+<div class="card-container">
+  <app-user-card *ngFor="let result of searchResults" nickname="{{result.nickname}}"></app-user-card>
+</div>

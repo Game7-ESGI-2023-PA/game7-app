@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { tap } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient
+  ) {
   }
 
   login(loginCredentials: LoginRequest) {
-    return this.http.post<JwtTokenResponse>('/auth', loginCredentials)
+    return this.http.post<JwtTokenResponse>('/login', loginCredentials)
       .pipe(
         tap((res: JwtTokenResponse) => {
           AuthService.storeToken(res.token)
@@ -21,7 +24,9 @@ export class AuthService {
 
   public static isAuthenticated(): boolean {
     const token = AuthService.getToken();
-    return token !== null;
+    const helper = new JwtHelperService(); // TODO: do injection
+    return !helper.isTokenExpired(token);
+
   }
 
   public static getToken() {
@@ -56,4 +61,3 @@ export interface RegisterRequest {
   nickname: string;
   plainPassword: string;
 }
-
