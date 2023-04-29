@@ -12,7 +12,7 @@ export class UserSearchComponent {
 
   constructor(
     private userService: UserService
-  ) {}
+  ){}
 
   search(input: string) {
     this.userService.search(input).subscribe({
