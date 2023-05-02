@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { UserInterface, UserService } from 'src/app/shared/services/user.service';
+import { UserInterface } from 'src/app/shared/interfaces/UserInterface';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-user-search',
