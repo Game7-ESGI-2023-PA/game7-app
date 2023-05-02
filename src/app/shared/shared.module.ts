@@ -12,7 +12,8 @@ import {MatButtonModule} from "@angular/material/button";
     UserCardComponent,
   ],
   exports: [
-    UserCardComponent
+    UserCardComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
