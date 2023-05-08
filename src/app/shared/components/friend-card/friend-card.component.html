@@ -1,0 +1,12 @@
+<div>
+  <mat-card class="card-5 card">
+    <img  [src]="getPhotoUrl()"  mat-card-image class="card-image" height="40%" width="40%">
+    <mat-card-content>
+      <p style="color: #1AC718; text-align: center; margin: 3px; font-weight: bold; font-size: large;"> {{ nickname }} </p>
+    </mat-card-content>
+    <mat-card-actions style="display: flex; justify-content: center;">
+      <button   mat-raised-button color="primary"  (click)="startChat()"><h3>chat</h3></button>
+      <button mat-raised-button color="grey" ><h3>Détails</h3></button>
+    </mat-card-actions>
+  </mat-card>
+</div>
