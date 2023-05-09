@@ -62,25 +62,30 @@ li {
 
 .carrouselle-container {
   margin-left: 5%;
+  margin-right: 5%;
   margin-top: 5%;
   padding-top: 5px;
+  padding-bottom: 3em;
   background-color: #404040;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content:  flex-start ;
 }
 
 .carrouselle-title-container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  margin-left: 3em;
+  margin-top: 1em;
 }
 
 .card-container {
   display: flex;
   flex-direction: row;
-  gap: 5px;
-  justify-content: center
+  gap: 3em;
+  justify-content: center;
+
 }
 
 .card-div {

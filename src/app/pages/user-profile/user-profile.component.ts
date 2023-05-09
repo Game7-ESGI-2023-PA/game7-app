@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserInterface} from "../../shared/interfaces/UserInterface";
+import { UserCardInterface } from 'src/app/shared/interfaces/UserCardInterface';
 
 @Component({
   selector: 'app-user-profile',
@@ -8,8 +9,9 @@ import {UserInterface} from "../../shared/interfaces/UserInterface";
 })
 export class UserProfileComponent  implements OnInit {
 
-  friends = [
-    {
+  friends :UserCardInterface[] = [];
+  /* = [
+   {
       id: '1234',
       nickname: 'user1',
       email: 'user1@example.com',
@@ -69,7 +71,7 @@ export class UserProfileComponent  implements OnInit {
       email: 'user10@example.com',
       photoUrl: 'assets/placeholders/no_player_image.jpg'
     }
-  ];
+  ];*/
 
   users = [
     {
@@ -136,7 +138,27 @@ export class UserProfileComponent  implements OnInit {
 
   ngOnInit(): void {
 
+    if(this.friends.length  <= 0) {
+      this.friends  = [
+        {
+          id: 'none',
+          nickname: 'none',
+          email: 'none',
+          photoUrl: 'assets/placeholders/no_player_image.jpg'
+        }
+      ];
+    }
 
+    if(this.users.length  <= 0) {
+      this.users  = [
+        {
+          id: 'none',
+          nickname: 'none',
+          email: 'none',
+          photoUrl: 'assets/placeholders/no_player_image.jpg'
+        }
+      ];
+    }
 
   }
 

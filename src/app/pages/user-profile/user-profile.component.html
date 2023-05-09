@@ -29,8 +29,9 @@
     </div>
     <div class="card-container">
       <div *ngFor="let friend of friends  | slice:0:5; let i=index" class="card-div">
-        <app-friend-card [nickname]="friend.nickname"
-                       [photoUrl]="friend.photoUrl"
+        <app-friend-card
+          [nickname]="friend.nickname"
+          [photoUrl]="friend.photoUrl"
         ></app-friend-card>
       </div>
     </div>
