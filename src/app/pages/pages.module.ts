@@ -22,6 +22,9 @@ import { NavbarComponent } from '../shared/components/navbar/navbar.component';
     UserProfileComponent,
 
   ],
+  exports: [
+    UserProfileComponent
+  ],
   imports: [
     CommonModule,
     AppRoutingModule,

@@ -1,22 +1,52 @@
 <app-navbar></app-navbar>
-<div class="profile-container">
+<div class="page-container">
+  <div class="profile-container">
     <div class="player-information-container">
-        <div class="img-pseudo-container">
-            <img class="user-img" src="assets/placeholders/no_player_image.jpg">
-            <h1 class="user-pseudo">Pseudo</h1>
-        </div>
-        <div class="text-information">
-            <h1>
-                Informations
-            </h1>
-            <ul class="information-list">
-                <li>
-                    Email :
-                </li>
-                <li>
-                    Pseudo :
-                </li>
-            </ul>
-        <div>
+      <div class="img-pseudo-container">
+        <img class="user-img" src="assets/placeholders/no_player_image.jpg">
+        <h1 class="user-pseudo">Pseudo</h1>
+      </div>
+      <div class="text-information">
+        <h1>
+          Informations
+        </h1>
+        <ul class="information-list">
+          <li>
+            Email :
+          </li>
+          <li>
+            Pseudo :
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
+  <div class="carrouselle-container">
+    <div  class="carrouselle-title-container">
+      <h1>
+        liste d'ami
+      </h1>
+    </div>
+    <div class="card-container">
+      <div *ngFor="let friend of friends  | slice:0:5; let i=index" class="card-div">
+        <app-friend-card [nickname]="friend.nickname"
+                       [photoUrl]="friend.photoUrl"
+        ></app-friend-card>
+      </div>
+    </div>
+  </div>
+  <div class="carrouselle-container">
+    <div  class="carrouselle-title-container">
+      <h1>
+        Demande d'ami
+      </h1>
+    </div>
+    <div class="card-container">
+      <div *ngFor="let user of users  | slice:0:5; let i=index" class="card-div">
+        <app-user-card [nickname]="user.nickname"
+                       [photoUrl]="user.photoUrl"
+        ></app-user-card>
+      </div>
+    </div>
+  </div>
 </div>

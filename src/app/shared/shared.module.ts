@@ -5,15 +5,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import { FriendCardComponent } from './components/friend-card/friend-card.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     UserCardComponent,
+    FriendCardComponent,
   ],
   exports: [
     UserCardComponent,
-    NavbarComponent
+    NavbarComponent,
+    FriendCardComponent
   ],
   imports: [
     CommonModule,
