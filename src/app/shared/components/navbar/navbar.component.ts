@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  constructor( private router: Router) {
+  }
+
+  redirectToHome() {
+    this.router.navigate(['/']);//TODO redirect to home
+  }
+
+  logout() {
+    localStorage.removeItem("id_token");
+    this.router.navigate(['/login']);
+  }
 }

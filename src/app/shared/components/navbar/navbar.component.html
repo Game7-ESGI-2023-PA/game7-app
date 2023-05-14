@@ -1,1 +1,9 @@
-<p>navbar works!</p>
+<link rel="stylesheet" href="navbar.component.css">
+<header class="header-container">
+  <img src="assets/logo2.png" class="logo">
+  <button mat-button [matMenuTriggerFor]="menu" class="menu-button">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Home</button>
+    <button mat-menu-item (click)="logout()">Se deconnecter</button>
+  </mat-menu>
+</header>
