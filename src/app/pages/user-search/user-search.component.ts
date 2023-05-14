@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserInterface } from 'src/app/shared/interfaces/UserInterface';
 import { UserService } from 'src/app/shared/services/user.service';
 
