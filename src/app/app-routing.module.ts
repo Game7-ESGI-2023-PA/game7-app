@@ -4,17 +4,19 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PagesComponent } from './pages/pages.component';
 import { UserSearchComponent } from './pages/user-search/user-search.component';
-import { authGuard } from './auth/auth.guard';
 import { LandingComponent } from './pages/landing/landing.component';
+import { alreadyAuthenticatedGuard, unauthenticatedGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [alreadyAuthenticatedGuard]
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [alreadyAuthenticatedGuard]
   },
   {
     path: '',
@@ -28,7 +30,7 @@ const routes: Routes = [
       {
         path: 'user-search',
         data: { title: 'Rechercer un joueur' },
-        canActivate: [authGuard],
+        canActivate: [unauthenticatedGuard],
         component: UserSearchComponent,
       },
     ],
