@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserInterface, UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { UserInterface, UserService } from 'src/app/shared/services/user.service
   templateUrl: './user-search.component.html',
   styleUrls: ['./user-search.component.css']
 })
-export class UserSearchComponent {
+export class UserSearchComponent implements OnInit {
 
   searchResults: UserInterface[] = [];
 
@@ -14,8 +14,16 @@ export class UserSearchComponent {
     private userService: UserService
   ){}
 
-  search(input: string) {
-    this.userService.search(input).subscribe({
+  ngOnInit(): void {
+    this.searchRequest("");
+  }
+
+  onSearch(input: string) {
+    this.searchRequest(input);
+  }
+
+  searchRequest(query: string) {
+    this.userService.search(query).subscribe({
       next: (results) => {
         this.searchResults = results;
       }
