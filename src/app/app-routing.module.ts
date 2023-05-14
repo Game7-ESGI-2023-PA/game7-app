@@ -26,6 +26,7 @@ const routes: Routes = [
         path: '',
         data: { title: 'Game7' },
         component: LandingComponent,
+        canActivate: [alreadyAuthenticatedGuard]
       },
       {
         path: 'user-search',
