@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -6,17 +6,36 @@ import {Router} from "@angular/router";
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent  implements OnInit  {
+
+  @Input() photoUrl: string | undefined;
 
   constructor( private router: Router) {
   }
 
+  ngOnInit(): void {
+
+    this.getPhotoUrl();
+
+  }
+
   redirectToHome() {
-    this.router.navigate(['/']);//TODO redirect to home
+    this.router.navigate(['/user-profile']);
+  }
+
+  redirectToUsearSearch() {
+    this.router.navigate(['/user-search']);
   }
 
   logout() {
     localStorage.removeItem("id_token");
     this.router.navigate(['/login']);
+  }
+
+  getPhotoUrl() {
+    if(this.photoUrl !== undefined) {
+      return this.photoUrl;
+    }
+    return '../../../assets/placeholders/no_player_image.jpg'
   }
 }

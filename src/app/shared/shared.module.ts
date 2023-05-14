@@ -6,6 +6,7 @@ import { UserCardComponent } from './components/user-card/user-card.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import { FriendCardComponent } from './components/friend-card/friend-card.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FriendCardComponent } from './components/friend-card/friend-card.compon
     MatCardModule,
     MatButtonModule,
     NgOptimizedImage,
+    MatMenuModule
   ],
 })
 export class SharedModule { }

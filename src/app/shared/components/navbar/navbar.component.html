@@ -1,9 +1,13 @@
 <link rel="stylesheet" href="navbar.component.css">
 <header class="header-container">
   <img src="assets/logo2.png" class="logo">
-  <button mat-button [matMenuTriggerFor]="menu" class="menu-button">Menu</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>Home</button>
-    <button mat-menu-item (click)="logout()">Se deconnecter</button>
-  </mat-menu>
+  <div class="button-avatar">
+    <button mat-raised-button [matMenuTriggerFor]="menu" class="menu-button" color="primary">Menu</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="redirectToHome()">Home</button>
+      <button mat-menu-item (click)="redirectToUsearSearch()">Recherche joueur</button>
+      <button mat-menu-item (click)="logout()">Se deconnecter</button>
+    </mat-menu>
+    <img class="avatar" src="{{photoUrl}}" alt="Avatar" (click)="redirectToHome()">
+  </div>
 </header>
