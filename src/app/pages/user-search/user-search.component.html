@@ -4,10 +4,14 @@
     <mat-form-field class="search-bar">
       <input matInput placeholder="Entrer le pseudo du Joueur..." #searchInput>
     </mat-form-field>
-    <button mat-raised-button color="primary" class="search-button" (click)="search(searchInput.value)">Rechercher</button>
+    <button mat-raised-button color="primary" class="search-button" (click)="onSearch(searchInput.value)">Rechercher</button>
   </div>
 </div>
 
-<div class="card-container">
+<div class="card-container" *ngIf="searchResults.length; else noResults">
   <app-user-card *ngFor="let result of searchResults" nickname="{{result.nickname}}"></app-user-card>
 </div>
+
+<ng-template #noResults>
+  Aucun résultat..
+</ng-template>
