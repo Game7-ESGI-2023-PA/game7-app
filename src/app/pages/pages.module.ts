@@ -20,10 +20,6 @@ import { NavbarComponent } from '../shared/components/navbar/navbar.component';
     PagesComponent,
     LandingComponent,
     UserProfileComponent,
-
-  ],
-  exports: [
-    UserProfileComponent
   ],
   imports: [
     CommonModule,

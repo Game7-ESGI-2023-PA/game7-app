@@ -6,6 +6,7 @@ import { PagesComponent } from './pages/pages.component';
 import { UserSearchComponent } from './pages/user-search/user-search.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { alreadyAuthenticatedGuard, unauthenticatedGuard } from './auth/auth.guard';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,12 @@ const routes: Routes = [
         data: { title: 'Rechercer un joueur' },
         canActivate: [unauthenticatedGuard],
         component: UserSearchComponent,
+      },
+      {
+        path: 'user-profile',
+        data: { title: 'Profile' },
+        canActivate: [unauthenticatedGuard],
+        component: UserProfileComponent,
       },
     ],
   }
