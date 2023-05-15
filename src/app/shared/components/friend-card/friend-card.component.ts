@@ -1,11 +1,11 @@
-import {Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-user-card',
-  templateUrl: './user-card.component.html',
-  styleUrls: ['./user-card.component.css']
+  selector: 'app-friend-card',
+  templateUrl: './friend-card.component.html',
+  styleUrls: ['./friend-card.component.css']
 })
-export class UserCardComponent {
+export class FriendCardComponent {
 
   @Input() nickname: string | undefined;//ToDO fixe pss all interface
   @Input() photoUrl: string | undefined;
@@ -16,4 +16,9 @@ export class UserCardComponent {
     }
     return '../../../assets/placeholders/no_player_image.jpg'
   }
+  startChat() {
+    console.log("startChat");
+    //TODO implement chat
+  }
+
 }

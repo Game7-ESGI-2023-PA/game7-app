@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { UserInterface } from "../interfaces/UserInterface";
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,4 @@ export class UserService {
   search(query: string) {
     return this.http.get<UserInterface[]>(`/users?nickname=${query}`);
   }
-
-}
-
-
-export interface UserInterface {
-  id: string,
-  nickname: string,
-  email: string
 }
