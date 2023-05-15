@@ -30,7 +30,7 @@
       <div *ngFor="let friend of friends  | slice:0:5; let i=index" class="card-div">
         <app-friend-card
           [nickname]="friend.nickname"
-          [photoUrl]="friend.photoUrl"
+          [photoUrl as string]="friend.photoUrl"
         ></app-friend-card>
       </div>
     </div>
@@ -44,7 +44,7 @@
     <div class="card-container">
       <div *ngFor="let user of users  | slice:0:5; let i=index" class="card-div">
         <app-user-card [nickname]="user.nickname"
-                       [photoUrl]="user.photoUrl"
+                       [photoUrl as string]="user.photoUrl"
         ></app-user-card>
       </div>
     </div>

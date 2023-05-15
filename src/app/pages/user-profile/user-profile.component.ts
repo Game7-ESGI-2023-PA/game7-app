@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {UserInterface} from "../../shared/interfaces/UserInterface";
-import { UserCardInterface } from 'src/app/shared/interfaces/UserCardInterface';
 
 @Component({
   selector: 'app-user-profile',
@@ -9,7 +8,7 @@ import { UserCardInterface } from 'src/app/shared/interfaces/UserCardInterface';
 })
 export class UserProfileComponent  implements OnInit {
 
-  friends :UserCardInterface[] = [];
+  friends :UserInterface[] = [];
   /* = [
    {
       id: '1234',

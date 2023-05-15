@@ -7,7 +7,7 @@ import {Component, Input} from '@angular/core';
 })
 export class FriendCardComponent {
 
-  @Input() nickname: string | undefined;
+  @Input() nickname: string | undefined;//ToDO fixe pss all interface
   @Input() photoUrl: string | undefined;
 
   getPhotoUrl() {
