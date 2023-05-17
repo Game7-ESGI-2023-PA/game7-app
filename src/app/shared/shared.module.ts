@@ -7,17 +7,20 @@ import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import { FriendCardComponent } from './components/friend-card/friend-card.component';
 import {MatMenuModule} from "@angular/material/menu";
+import { UserMiniCardComponent } from './components/user-mini-card/user-mini-card.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     UserCardComponent,
     FriendCardComponent,
+    UserMiniCardComponent,
   ],
   exports: [
     UserCardComponent,
     NavbarComponent,
-    FriendCardComponent
+    FriendCardComponent,
+    UserMiniCardComponent
   ],
   imports: [
     CommonModule,

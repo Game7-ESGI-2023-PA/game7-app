@@ -1,0 +1,5 @@
+html, body {
+  height: 100%; /* Définit la hauteur de l'élément html et body à 100% */
+  margin: 0; /* Supprime les marges par défaut du body */
+  padding: 0; /* Supprime les rembourrages par défaut du body */
+}

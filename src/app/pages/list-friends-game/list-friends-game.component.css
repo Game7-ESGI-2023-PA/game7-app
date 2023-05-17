@@ -1,0 +1,29 @@
+.container-list-friends-game {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    height: 100%;
+    gap: 2em;
+    margin: 0; 
+    padding: 0; 
+}
+
+.list-player-mini-carde {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    height: 100%;
+    padding-top: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
+    /*0border-right: 2px solid green;*/
+}
+
+.table-container {
+    padding-top: 2em;
+   
+}
+
+.titre {
+    margin-left: 2em;
+}
