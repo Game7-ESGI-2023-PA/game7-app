@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { LandingComponent } from './landing/landing.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NavbarComponent } from '../shared/components/navbar/navbar.component';
+import { ListFriendsGameComponent } from './list-friends-game/list-friends-game.component';
 
 
 
@@ -20,6 +21,7 @@ import { NavbarComponent } from '../shared/components/navbar/navbar.component';
     PagesComponent,
     LandingComponent,
     UserProfileComponent,
+    ListFriendsGameComponent,
   ],
   imports: [
     CommonModule,

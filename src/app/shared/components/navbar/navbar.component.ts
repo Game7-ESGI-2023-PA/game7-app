@@ -21,6 +21,10 @@ export class NavbarComponent  {
     this.router.navigate(['/user-search']);
   }
 
+  redirectlistFriendsGames() {
+    this.router.navigate(['/list-friends-game']);
+  }
+
   logout() {
     localStorage.removeItem("id_token");
     this.router.navigate(['/login']);

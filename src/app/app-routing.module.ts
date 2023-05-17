@@ -7,6 +7,7 @@ import { UserSearchComponent } from './pages/user-search/user-search.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { alreadyAuthenticatedGuard, unauthenticatedGuard } from './auth/auth.guard';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { ListFriendsGameComponent } from './pages/list-friends-game/list-friends-game.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,12 @@ const routes: Routes = [
         data: { title: 'Profile' },
         canActivate: [unauthenticatedGuard],
         component: UserProfileComponent,
+      },
+      {
+        path: 'list-friends-game',
+        data: { title: 'List-friends-game' },
+        canActivate: [unauthenticatedGuard],
+        component: ListFriendsGameComponent,
       },
     ],
   }
