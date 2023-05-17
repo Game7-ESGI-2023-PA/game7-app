@@ -11,18 +11,18 @@
             Informations
           </h1>
           <div *ngIf="!isCurrentUser">
-              <div *ngIf="friendShipStatus == 0">
+              <div *ngIf="friendShipStatus === 0">
                 <button mat-raised-button (click)="askForFriend()">Ask for friend</button>
               </div>
-              <div *ngIf="friendShipStatus == 1">
+              <div *ngIf="friendShipStatus === 1">
                 Already friends
               </div>
-              <div *ngIf="friendShipStatus == 2">
+              <div *ngIf="friendShipStatus === 2">
                 Request received : click here to accept
                 <button mat-raised-button (click)="acceptRequest()">Accept</button>
                 <button mat-raised-button color="warn" (click)="denieRequest()">Denie</button>
               </div>
-              <div *ngIf="friendShipStatus == 3">
+              <div *ngIf="friendShipStatus === 3">
                 Request Sent
               </div>
           </div>

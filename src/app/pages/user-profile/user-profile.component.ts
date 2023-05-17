@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {UserInterface} from "../../shared/interfaces/UserInterface";
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
-import { FriendRequestInterface, FriendsInterface, Status } from 'src/app/shared/interfaces/FriendshipInterface';
+import { FriendRequestInterface, Status } from 'src/app/shared/interfaces/FriendshipInterface';
 import { FriendsService } from 'src/app/shared/services/friends.service';
-import { combineLatest, forkJoin } from 'rxjs';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -18,7 +18,7 @@ export class UserProfileComponent  implements OnInit {
   sentFriendRequests: FriendRequestInterface[] | undefined = undefined;
   receivedFriendRequests: FriendRequestInterface[] | undefined = undefined;
 
-  isCurrentUser: boolean = false;
+  isCurrentUser = false;
   friendShipStatus: FriendShipStatus  = 0;
 
   public constructor (
@@ -63,8 +63,6 @@ export class UserProfileComponent  implements OnInit {
           else if(this.sentFriendRequests !== undefined && this.sentFriendRequests?.some((fr) => fr.to.id === userId)) {
             this.friendShipStatus = FriendShipStatus.RequestSent;
           }
-          console.log(this.friendShipStatus);
-          console.log(this.isCurrentUser);
         }
       });
     })
