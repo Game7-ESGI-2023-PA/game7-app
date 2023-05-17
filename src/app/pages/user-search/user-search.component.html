@@ -9,7 +9,7 @@
 </div>
 
 <div class="card-container" *ngIf="searchResults.length; else noResults">
-  <app-user-card *ngFor="let result of searchResults" nickname="{{result.nickname}}"></app-user-card>
+  <app-user-card *ngFor="let result of searchResults" [user]="result"></app-user-card>
 </div>
 
 <ng-template #noResults>
