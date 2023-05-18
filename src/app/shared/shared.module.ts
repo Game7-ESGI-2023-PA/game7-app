@@ -8,6 +8,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { FriendCardComponent } from './components/friend-card/friend-card.component';
 import {MatMenuModule} from "@angular/material/menu";
 import { UserMiniCardComponent } from './components/user-mini-card/user-mini-card.component';
+import { GameCardComponent } from './components/game-card/game-card.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,14 @@ import { UserMiniCardComponent } from './components/user-mini-card/user-mini-car
     UserCardComponent,
     FriendCardComponent,
     UserMiniCardComponent,
+    GameCardComponent,
   ],
   exports: [
     UserCardComponent,
     NavbarComponent,
     FriendCardComponent,
-    UserMiniCardComponent
+    UserMiniCardComponent,
+    GameCardComponent
   ],
   imports: [
     CommonModule,

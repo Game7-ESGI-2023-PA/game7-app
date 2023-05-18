@@ -45,7 +45,7 @@ const routes: Routes = [
       {
         path: 'list-friends-game',
         data: { title: 'List-friends-game' },
-        canActivate: [unauthenticatedGuard],
+       // canActivate: [unauthenticatedGuard],//TODO DELELTE COMMENTS
         component: ListFriendsGameComponent,
       },
     ],

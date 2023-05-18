@@ -16,7 +16,7 @@ export class ListFriendsGameComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.searchRequest("");
+    //this.searchRequest("");
   }
 
   searchRequest(query: string) {
