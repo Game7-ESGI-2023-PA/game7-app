@@ -1,4 +1,6 @@
 import {Component, Input } from '@angular/core';
+import { UserInterface } from '../../interfaces/UserInterface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-card',
@@ -7,13 +9,21 @@ import {Component, Input } from '@angular/core';
 })
 export class UserCardComponent {
 
-  @Input() nickname: string | undefined;//ToDO fixe pss all interface
-  @Input() photoUrl: string | undefined;
+  public constructor(private router: Router) {}
+
+  @Input() user: UserInterface | undefined = undefined;
 
   getPhotoUrl() {
-    if(this.photoUrl !== undefined) {
-      return this.photoUrl;
+    if(this.user?.photoUrl !== undefined) {
+      return this.user?.photoUrl;
     }
     return '../../../assets/placeholders/no_player_image.jpg'
+  }
+
+  goToUserProfile() {
+    console.log(this.user);
+    if(this.user?.id) {
+      this.router.navigate(['user-profile', this.user?.id])
+    }
   }
 }

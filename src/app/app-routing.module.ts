@@ -36,6 +36,12 @@ const routes: Routes = [
         component: UserSearchComponent,
       },
       {
+        path: 'user-profile/:id',
+        data: { title: 'Profile' },
+        canActivate: [unauthenticatedGuard],
+        component: UserProfileComponent,
+      },
+      {
         path: 'user-profile',
         data: { title: 'Profile' },
         canActivate: [unauthenticatedGuard],

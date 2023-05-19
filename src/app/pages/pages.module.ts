@@ -10,7 +10,6 @@ import {MatButtonModule} from "@angular/material/button";
 import { SharedModule } from '../shared/shared.module';
 import { LandingComponent } from './landing/landing.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { NavbarComponent } from '../shared/components/navbar/navbar.component';
 
 
 
