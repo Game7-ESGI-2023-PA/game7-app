@@ -1,5 +1,5 @@
 export const environment = {
-  apiUrl: 'https://localhost/api',
-  name: 'dev',
-  production: false,
+  apiUrl: 'https://api.game7app.com/api',
+  name: 'prod',
+  production: true,
 };
