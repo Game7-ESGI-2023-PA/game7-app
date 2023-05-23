@@ -5,20 +5,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
-import { FriendCardComponent } from './components/friend-card/friend-card.component';
-import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
     NavbarComponent,
     UserCardComponent,
+    GameCardComponent,
     FriendCardComponent,
   ],
-  exports: [
-    UserCardComponent,
-    NavbarComponent,
-    FriendCardComponent
-  ],
+    exports: [
+      UserCardComponent,
+      GameCardComponent,
+      NavbarComponent,
+      FriendCardComponent
+    ],
   imports: [
     CommonModule,
     HttpClientModule,

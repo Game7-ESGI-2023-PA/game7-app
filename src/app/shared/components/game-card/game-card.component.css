@@ -1,0 +1,9 @@
+.gameCard{
+  background-color: black;
+  border-radius: 10px;
+  max-width: 300px;
+  max-height: 400px;
+  margin : auto;
+  box-shadow: 0 19px 38px rgba(26,199,24,100), 0 15px 12px rgba(26,199,24,100);
+}
+
