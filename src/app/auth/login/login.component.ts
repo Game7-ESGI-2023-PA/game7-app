@@ -9,6 +9,8 @@ import {AuthService} from "../../shared/services/auth.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  hide = true;
   form: FormGroup = new FormGroup({});;
 
   constructor(private fb:FormBuilder,
@@ -43,4 +45,7 @@ export class LoginComponent implements OnInit {
      }
    }
 
+   redirectToRegister() {
+    this.router.navigate(['register']);
+   }
 }

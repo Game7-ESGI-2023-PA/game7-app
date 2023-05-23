@@ -1,11 +1,41 @@
-.login-form {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /* If you want it to take up the whole viewport height */
 }
 
-.form-buttons {
-  display: flex;
-  justify-content: center;
+.login-legend {
+  padding-top: 20vh;
+  color: #267D1E;
+  font-weight: bold;
+  font-size: 3em;
+
+}
+
+.image-side, .form-side {
+  flex: 1;
+  padding: 10px;
+  height: 100vh;
+}
+
+.image-side img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover; /* This will make sure the image scales properly */
+}
+
+.form-side {
+  padding-left: 10vh;
+}
+
+.form-side form {
+  /* Your form styling goes here */
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: white;
+}
+/* Font color */
+input.mat-input-element {
+  color: white;
 }

@@ -1,26 +1,38 @@
-<div>
-  <form [formGroup]="form" class="login-form">
-    <legend>Login</legend>
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Mail :</mat-label>
-        <input name="email" matInput placeholder="email" formControlName="email" />
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Password :</mat-label>
-        <input
-          matInput
-          placeholder="password"
-          name="password"
-          formControlName="password"
-          type="password"
-        />
-      </mat-form-field>
-    </p>
-    <div class="form-buttons">
-      <button mat-raised-button color="primary" (click)="login()">Login</button>
-    </div>
-  </form>
+<div class="container">
+  <div class="image-side">
+    <img class="login-img" f src="assets/login_image.jpg">
+  </div>
+  <div class="form-side">
+    <form [formGroup]="form">
+      <legend class="login-legend">Identifiez vous</legend>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Adresse email</mat-label>
+          <input matInput type="email" formControlName="email" />
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="mat-form-field-appearance-outline mat-form-field-outline" appearance="fill">
+          <mat-label>Mot de passe</mat-label>
+          <input
+            matInput
+            placeholder="password"
+            name="password"
+            formControlName="password"
+            type="password"
+            [type]="hide ? 'password' : 'text'"
+          >
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </p>
+      <div class="form-buttons">
+        <button mat-raised-button color="primary" (click)="login()">Connection</button>
+      </div>
+    <p><a (click)="redirectToRegister()">Cliquez ici pour vous inscrire</a></p>
+    </form>
+  </div>
 </div>
+
+
