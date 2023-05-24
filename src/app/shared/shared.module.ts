@@ -3,29 +3,24 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserCardComponent } from './components/user-card/user-card.component';
-import {MatCardModule} from "@angular/material/card";
-import {MatButtonModule} from "@angular/material/button";
-
+import {GameCardComponent} from "./components/game-card/game-card.component";
+import { ButtonComponent } from "./components/button/button.component";
 @NgModule({
   declarations: [
     NavbarComponent,
     UserCardComponent,
     GameCardComponent,
-    FriendCardComponent,
+    ButtonComponent
   ],
     exports: [
       UserCardComponent,
       GameCardComponent,
       NavbarComponent,
-      FriendCardComponent
+      ButtonComponent
     ],
   imports: [
     CommonModule,
     HttpClientModule,
-    MatCardModule,
-    MatButtonModule,
-    NgOptimizedImage,
-    MatMenuModule
   ],
 })
 export class SharedModule { }

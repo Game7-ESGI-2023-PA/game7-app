@@ -3,13 +3,11 @@ import { CommonModule } from '@angular/common';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { PagesComponent } from './pages.component';
 import { AppRoutingModule } from '../app-routing.module';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from "@angular/material/input";
-import {MatIconModule} from "@angular/material/icon";
-import {MatButtonModule} from "@angular/material/button";
 import { SharedModule } from '../shared/shared.module';
 import { LandingComponent } from './landing/landing.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { GameSearchComponent } from './game-search/game-search.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 
 
 
@@ -19,14 +17,14 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     PagesComponent,
     LandingComponent,
     UserProfileComponent,
+    GameSearchComponent,
+    GameDetailComponent,
+  ],
+  exports: [
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule,
     SharedModule
   ]
 })
