@@ -1,38 +1,22 @@
 <div class="container">
   <div class="image-side">
-    <img class="login-img" f src="assets/login_image.jpg">
+    <img class="login-img" src="assets/login_image.jpg" />
   </div>
   <div class="form-side">
     <form [formGroup]="form">
       <legend class="login-legend">Identifiez vous</legend>
-      <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Adresse email</mat-label>
-          <input matInput type="email" formControlName="email" />
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field class="mat-form-field-appearance-outline mat-form-field-outline" appearance="fill">
-          <mat-label>Mot de passe</mat-label>
-          <input
-            matInput
-            placeholder="password"
-            name="password"
-            formControlName="password"
-            type="password"
-            [type]="hide ? 'password' : 'text'"
-          >
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-        </mat-form-field>
-      </p>
-      <div class="form-buttons">
-        <button mat-raised-button color="primary" (click)="login()">Connection</button>
+      <div class="input-container">
+        <label for="email">Adresse email</label>
+        <input class="input-field" id="email" placeholder="mon-email@gmail.com" type="email" formControlName="email" />
       </div>
-    <p><a (click)="redirectToRegister()">Cliquez ici pour vous inscrire</a></p>
+      <div class="input-container">
+        <label>Mot de passe</label>
+        <input class="input-field" placeholder="password" name="password" formControlName="password" type="password" />
+      </div>
+      <div class="form-buttons">
+        <app-button label="Connection" (customClick)="login()" [disabled]="form.invalid"></app-button>
+      </div>
+      <p><a (click)="redirectToRegister()">Cliquez ici pour vous inscrire</a></p>
     </form>
   </div>
 </div>
-
-

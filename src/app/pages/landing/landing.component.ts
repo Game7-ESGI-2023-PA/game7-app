@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from "@angular/router";
+import { ButtonColor } from "../../shared/components/button/button.component";
 
 @Component({
   selector: 'app-landing',
@@ -7,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class LandingComponent {
 
+  constructor(private router: Router) {
+  }
+
+  login() {
+    this.router.navigate(['login']).then();
+  }
+
+  register() {
+    this.router.navigate(['register']).then();
+  }
+
+  protected readonly ButtonColor = ButtonColor;
 }

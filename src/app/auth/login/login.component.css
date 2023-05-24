@@ -1,6 +1,8 @@
 .container {
   display: flex;
   flex-direction: row;
+  margin: 15px;
+  max-width: 100vh;
   height: 100vh; /* If you want it to take up the whole viewport height */
 }
 
@@ -32,10 +34,31 @@
   /* Your form styling goes here */
 }
 
-.mat-form-field-appearance-outline .mat-form-field-outline {
-  color: white;
+
+.input-container {
+  margin-top: 4vh;
+  max-width: 30vh;
+  display: flex;
+  flex-direction: column;
 }
-/* Font color */
-input.mat-input-element {
-  color: white;
+
+.input-field {
+  margin-top: 10px;
+  padding: 13px;
+  border-width: 1px;
+  border-color: #519d25;
+  background-color: #000000;
+  color: #e7e7e7;
+  border-style: solid;
+  border-radius: 15px;
+  font-size: 15px;
+  box-shadow: -2px 9px 10px rgba(5,108,27,.74);
+}
+
+.input-field:focus {
+  outline:none;
+}
+
+.form-buttons {
+  margin-top: 20px;
 }

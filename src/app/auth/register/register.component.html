@@ -1,64 +1,48 @@
 <div class="container">
   <div class="image-side">
-    <img class="login-img" f src="assets/login_image.jpg">
+    <img class="login-img" src="assets/login_image.jpg">
   </div>
   <div class="form-side">
       <legend class="register-legend">Inscrivez vous</legend>
-      <form [formGroup]="form" (ngSubmit)="register()">
+      <form [formGroup]="form">
         <div>
-          <mat-form-field appearance="fill">
-            <mat-label>Entrer votre email</mat-label>
-            <input
-              type="email"
-              matInput
-              placeholder="pat@example.com"
-              formControlName="email"
-              required
-            />
-            <mat-error *ngIf="emailCheck">
-              {{ '' }}
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field appearance="fill">
-            <mat-label>Entrer votre pseudonyme</mat-label>
-            <input type="text" matInput placeholder="pat" formControlName="nickname" required />
-            <mat-error *ngIf="emailCheck">
-              {{ '' }}
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field appearance="fill">
-            <mat-label>Entrer votre mot de passe</mat-label>
-            <input
-              type="password"
-              matInput
-              placeholder="mot de passe"
-              formControlName="password"
-              required
-            />
-            <mat-error *ngIf="passwordCheck">
-              {{ 'getErrorMessage' }}
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field appearance="fill">
-            <mat-label>Confirmer votre mot de passe</mat-label>
-            <input
-              type="password"
-              matInput
-              placeholder=" confirmation mot de passe"
-              formControlName="confirmPassword"
-              required
-            />
-            <mat-error *ngIf="confirmPasswordCheck">{{ 'getErrorMessage' }}</mat-error>
-          </mat-form-field>
-        </div>
-        <div>
-          <button mat-raised-button color="primary"  type="submit" [disabled]="form.invalid" disabled>Submit</button>
+          <div class="input-container">
+              <label>Entrer votre email</label>
+              <input
+                class="input-field"
+                type="email"
+                placeholder="pat@example.com"
+                formControlName="email"
+                required
+              />
+          </div>
+          <div class="input-container">
+              <label>Entrer votre pseudonyme</label>
+              <input class="input-field" type="text" placeholder="pat" formControlName="nickname" required />
+          </div>
+          <div class="input-container">
+              <label>Entrer votre mot de passe</label>
+              <input
+                class="input-field"
+                type="password"
+                placeholder="mot de passe"
+                formControlName="password"
+                required
+              />
+          </div>
+          <div class="input-container">
+              <label>Confirmer votre mot de passe</label>
+              <input
+                class="input-field"
+                type="password"
+                placeholder=" confirmation mot de passe"
+                formControlName="confirmPassword"
+                required
+              />
+          </div>
+          <div class="form-buttons">
+            <app-button label="Créer un compte" (customClick)="register()" [disabled]="form.invalid"></app-button>
+          </div>
         </div>
       <p><a (click)="redirectToLogin()">Cliquez ici pour vous identifier</a></p>
       </form>
