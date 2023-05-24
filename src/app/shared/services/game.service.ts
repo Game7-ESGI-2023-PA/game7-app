@@ -1,16 +1,13 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { UserInterface } from "../interfaces/UserInterface";
-import { Observable } from "rxjs";
-import {GameInterface} from "../interfaces/GameInterface";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { GameInterface } from '../interfaces/GameInterface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GameService {
-
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   search(query: string): Observable<GameInterface[]> {
     return this.http.get<GameInterface[]>(`/games?name=${query}`);

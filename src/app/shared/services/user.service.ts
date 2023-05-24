@@ -1,15 +1,13 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { UserInterface } from "../interfaces/UserInterface";
-import { Observable } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { UserInterface } from '../interfaces/UserInterface';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   search(query: string): Observable<UserInterface[]> {
     return this.http.get<UserInterface[]>(`/users?nickname=${query}`);

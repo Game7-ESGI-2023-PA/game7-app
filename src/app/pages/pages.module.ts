@@ -9,8 +9,6 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { GameSearchComponent } from './game-search/game-search.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 
-
-
 @NgModule({
   declarations: [
     UserSearchComponent,
@@ -20,12 +18,7 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
     GameSearchComponent,
     GameDetailComponent,
   ],
-  exports: [
-  ],
-  imports: [
-    CommonModule,
-    AppRoutingModule,
-    SharedModule
-  ]
+  exports: [],
+  imports: [CommonModule, AppRoutingModule, SharedModule],
 })
-export class PagesModule { }
+export class PagesModule {}

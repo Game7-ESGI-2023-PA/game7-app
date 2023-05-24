@@ -7,19 +7,19 @@ import { UserSearchComponent } from './pages/user-search/user-search.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { alreadyAuthenticatedGuard, unauthenticatedGuard } from './auth/auth.guard';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
-import {GameSearchComponent} from "./pages/game-search/game-search.component";
-import {GameDetailComponent} from "./pages/game-detail/game-detail.component";
+import { GameSearchComponent } from './pages/game-search/game-search.component';
+import { GameDetailComponent } from './pages/game-detail/game-detail.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    canActivate: [alreadyAuthenticatedGuard]
+    canActivate: [alreadyAuthenticatedGuard],
   },
   {
     path: 'register',
     component: RegisterComponent,
-    canActivate: [alreadyAuthenticatedGuard]
+    canActivate: [alreadyAuthenticatedGuard],
   },
   {
     path: '',
@@ -29,7 +29,7 @@ const routes: Routes = [
         path: '',
         data: { title: 'Game7' },
         component: LandingComponent,
-        canActivate: [alreadyAuthenticatedGuard]
+        canActivate: [alreadyAuthenticatedGuard],
       },
       {
         path: 'game-search',
@@ -62,11 +62,11 @@ const routes: Routes = [
         component: UserProfileComponent,
       },
     ],
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

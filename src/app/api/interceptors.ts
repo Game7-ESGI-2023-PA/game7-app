@@ -20,4 +20,3 @@ export const interceptors = [
     multi: true,
   },
 ];
-

@@ -16,23 +16,17 @@ export class UnAuthorizedInterceptor implements HttpInterceptor {
 
   excludedUrls = ['/', '/login', '/register'];
 
-  intercept(
-    request: HttpRequest<unknown>,
-    next: HttpHandler,
-  ): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request.clone()).pipe(
       tap({
-        error: (err) => {
+        error: err => {
           if (err instanceof HttpErrorResponse) {
-            if (
-              err.status === 401 &&
-              this.excludedUrls.indexOf(this.router.url) === -1
-            ) {
+            if (err.status === 401 && this.excludedUrls.indexOf(this.router.url) === -1) {
               this.router.navigate(['/login']);
             }
           }
         },
-      }),
+      })
     );
   }
 }

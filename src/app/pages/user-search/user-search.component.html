@@ -1,8 +1,8 @@
-<div style="text-align: center; margin-top: 5vh;">
-  <h1 style="font-size: 50px;"><span style="color: #44D62C">Rechercher</span> un Joueur</h1>
+<div style="text-align: center; margin-top: 5vh">
+  <h1 style="font-size: 50px"><span style="color: #44d62c">Rechercher</span> un Joueur</h1>
   <div class="search-container">
     <div class="search-bar">
-      <input class="search-input" placeholder="Entrer le nom du jeu..." #searchInput>
+      <input class="search-input" placeholder="Entrer le nom du jeu..." #searchInput />
     </div>
     <app-button label="Rechercher" (click)="onSearch(searchInput.value)"></app-button>
   </div>
@@ -13,7 +13,5 @@
 </div>
 
 <ng-template #noResults>
-  <div style="text-align: center; margin-top: 5vh;">
-    Aucun résultat à afficher.
-  </div>
+  <div style="text-align: center; margin-top: 5vh">Aucun résultat à afficher.</div>
 </ng-template>

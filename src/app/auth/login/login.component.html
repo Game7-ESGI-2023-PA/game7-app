@@ -7,14 +7,30 @@
       <legend class="login-legend">Identifiez vous</legend>
       <div class="input-container">
         <label for="email">Adresse email</label>
-        <input class="input-field" id="email" placeholder="mon-email@gmail.com" type="email" formControlName="email" />
+        <input
+          class="input-field"
+          id="email"
+          placeholder="mon-email@gmail.com"
+          type="email"
+          formControlName="email"
+        />
       </div>
       <div class="input-container">
         <label>Mot de passe</label>
-        <input class="input-field" placeholder="password" name="password" formControlName="password" type="password" />
+        <input
+          class="input-field"
+          placeholder="password"
+          name="password"
+          formControlName="password"
+          type="password"
+        />
       </div>
       <div class="form-buttons">
-        <app-button label="Connection" (customClick)="login()" [disabled]="form.invalid"></app-button>
+        <app-button
+          label="Connection"
+          (customClick)="login()"
+          [disabled]="form.invalid"
+        ></app-button>
       </div>
       <p><a (click)="redirectToRegister()">Cliquez ici pour vous inscrire</a></p>
     </form>

@@ -8,13 +8,13 @@
 
 .login-legend {
   padding-top: 20vh;
-  color: #267D1E;
+  color: #267d1e;
   font-weight: bold;
   font-size: 3em;
-
 }
 
-.image-side, .form-side {
+.image-side,
+.form-side {
   flex: 1;
   padding: 10px;
   height: 100vh;
@@ -34,7 +34,6 @@
   /* Your form styling goes here */
 }
 
-
 .input-container {
   margin-top: 4vh;
   max-width: 30vh;
@@ -52,11 +51,11 @@
   border-style: solid;
   border-radius: 15px;
   font-size: 15px;
-  box-shadow: -2px 9px 10px rgba(5,108,27,.74);
+  box-shadow: -2px 9px 10px rgba(5, 108, 27, 0.74);
 }
 
 .input-field:focus {
-  outline:none;
+  outline: none;
 }
 
 .form-buttons {

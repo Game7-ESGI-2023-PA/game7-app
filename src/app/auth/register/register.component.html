@@ -1,50 +1,60 @@
 <div class="container">
   <div class="image-side">
-    <img class="login-img" src="assets/login_image.jpg">
+    <img class="login-img" src="assets/login_image.jpg" />
   </div>
   <div class="form-side">
-      <legend class="register-legend">Inscrivez vous</legend>
-      <form [formGroup]="form">
-        <div>
-          <div class="input-container">
-              <label>Entrer votre email</label>
-              <input
-                class="input-field"
-                type="email"
-                placeholder="pat@example.com"
-                formControlName="email"
-                required
-              />
-          </div>
-          <div class="input-container">
-              <label>Entrer votre pseudonyme</label>
-              <input class="input-field" type="text" placeholder="pat" formControlName="nickname" required />
-          </div>
-          <div class="input-container">
-              <label>Entrer votre mot de passe</label>
-              <input
-                class="input-field"
-                type="password"
-                placeholder="mot de passe"
-                formControlName="password"
-                required
-              />
-          </div>
-          <div class="input-container">
-              <label>Confirmer votre mot de passe</label>
-              <input
-                class="input-field"
-                type="password"
-                placeholder=" confirmation mot de passe"
-                formControlName="confirmPassword"
-                required
-              />
-          </div>
-          <div class="form-buttons">
-            <app-button label="Créer un compte" (customClick)="register()" [disabled]="form.invalid"></app-button>
-          </div>
+    <legend class="register-legend">Inscrivez vous</legend>
+    <form [formGroup]="form">
+      <div>
+        <div class="input-container">
+          <label>Entrer votre email</label>
+          <input
+            class="input-field"
+            type="email"
+            placeholder="pat@example.com"
+            formControlName="email"
+            required
+          />
         </div>
+        <div class="input-container">
+          <label>Entrer votre pseudonyme</label>
+          <input
+            class="input-field"
+            type="text"
+            placeholder="pat"
+            formControlName="nickname"
+            required
+          />
+        </div>
+        <div class="input-container">
+          <label>Entrer votre mot de passe</label>
+          <input
+            class="input-field"
+            type="password"
+            placeholder="mot de passe"
+            formControlName="password"
+            required
+          />
+        </div>
+        <div class="input-container">
+          <label>Confirmer votre mot de passe</label>
+          <input
+            class="input-field"
+            type="password"
+            placeholder=" confirmation mot de passe"
+            formControlName="confirmPassword"
+            required
+          />
+        </div>
+        <div class="form-buttons">
+          <app-button
+            label="Créer un compte"
+            (customClick)="register()"
+            [disabled]="form.invalid"
+          ></app-button>
+        </div>
+      </div>
       <p><a (click)="redirectToLogin()">Cliquez ici pour vous identifier</a></p>
-      </form>
+    </form>
   </div>
 </div>
