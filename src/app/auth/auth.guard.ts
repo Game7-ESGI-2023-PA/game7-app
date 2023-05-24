@@ -13,7 +13,7 @@ export const unauthenticatedGuard = () => {
 export const alreadyAuthenticatedGuard = () => {
   const router = inject(Router);
   if (AuthService.isAuthenticated()) {
-    return router.parseUrl('/user-search');
+    return router.parseUrl('/game-search');
   }
   return true;
 };
