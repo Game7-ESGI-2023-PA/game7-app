@@ -17,8 +17,12 @@ export class NavbarComponent  {
     this.router.navigate(['/user-profile']);
   }
 
-  redirectToUsearSearch() {
+  redirectToUserSearch() {
     this.router.navigate(['/user-search']);
+  }
+
+  redirectToGameSearch() {
+    this.router.navigate(['/game-search']);
   }
 
   logout() {

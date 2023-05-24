@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { ButtonComponent } from './components/button/button.component';
+
 @NgModule({
   declarations: [NavbarComponent, UserCardComponent, GameCardComponent, ButtonComponent],
   exports: [UserCardComponent, GameCardComponent, NavbarComponent, ButtonComponent],

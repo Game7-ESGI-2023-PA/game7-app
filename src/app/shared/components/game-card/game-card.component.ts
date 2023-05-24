@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {GameInterface} from "../../interfaces/GameInterface";
 
 @Component({
   selector: 'app-game-card',
@@ -7,8 +8,6 @@ import {Component, Input} from '@angular/core';
 })
 export class GameCardComponent {
 
-  @Input() gameName: string | undefined;
-  @Input() gameImage: string | undefined;
-  @Input() gameDesc : string | undefined;
+  @Input() game: GameInterface | undefined;
 
 }

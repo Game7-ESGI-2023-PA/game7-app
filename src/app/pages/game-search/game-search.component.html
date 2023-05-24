@@ -1,0 +1,19 @@
+<div style="text-align: center; margin-top: 5vh;">
+  <h1 style="font-size: 50px;"><span style="color: #44D62C">Rechercher</span> un Jeu</h1>
+  <div class="search-container">
+    <div class="search-bar">
+      <input class="search-input" placeholder="Entrer le nom du jeu..." #searchInput>
+    </div>
+    <app-button label="Rechercher" (click)="onSearch(searchInput.value)"></app-button>
+  </div>
+</div>
+
+<div class="card-container" *ngIf="searchResults.length; else noResults">
+  <app-game-card *ngFor="let result of searchResults" [game]="result" (click)="gameDetail(result.id)"></app-game-card>
+</div>
+
+<ng-template #noResults>
+  <div style="text-align: center; margin-top: 5vh;">
+    Aucun résultat à afficher.
+  </div>
+</ng-template>
