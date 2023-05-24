@@ -1,6 +1,7 @@
 import {Component, Input } from '@angular/core';
 import { UserInterface } from '../../interfaces/UserInterface';
 import { Router } from '@angular/router';
+import { ButtonColor } from "../button/button.component";
 
 @Component({
   selector: 'app-user-card',
@@ -26,4 +27,6 @@ export class UserCardComponent {
       this.router.navigate(['user-profile', this.user?.id])
     }
   }
+
+  protected readonly ButtonColor = ButtonColor;
 }

@@ -12,7 +12,7 @@ export class UserSearchComponent implements OnInit {
   searchResults: UserInterface[] = [];
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
   ){}
 
   ngOnInit(): void {
@@ -30,5 +30,4 @@ export class UserSearchComponent implements OnInit {
       }
     })
   }
-
 }
