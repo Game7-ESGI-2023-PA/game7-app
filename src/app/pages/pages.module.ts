@@ -8,6 +8,7 @@ import { LandingComponent } from './landing/landing.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { GameSearchComponent } from './game-search/game-search.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
     UserProfileComponent,
     GameSearchComponent,
     GameDetailComponent,
+    NotFoundComponent,
   ],
   exports: [],
   imports: [CommonModule, AppRoutingModule, SharedModule],

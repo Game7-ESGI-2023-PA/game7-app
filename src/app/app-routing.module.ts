@@ -9,6 +9,7 @@ import { alreadyAuthenticatedGuard, unauthenticatedGuard } from './auth/auth.gua
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { GameSearchComponent } from './pages/game-search/game-search.component';
 import { GameDetailComponent } from './pages/game-detail/game-detail.component';
+import { NotFoundComponent } from "./pages/not-found/not-found.component";
 
 const routes: Routes = [
   {
@@ -29,7 +30,7 @@ const routes: Routes = [
         path: '',
         data: { title: 'Game7' },
         component: LandingComponent,
-        canActivate: [alreadyAuthenticatedGuard],
+        canActivate: [unauthenticatedGuard],
       },
       {
         path: 'game-search',
@@ -62,6 +63,10 @@ const routes: Routes = [
         component: UserProfileComponent,
       },
     ],
+  },
+  {
+    path: '**', pathMatch: 'full',
+    component: NotFoundComponent ,
   },
 ];
 
