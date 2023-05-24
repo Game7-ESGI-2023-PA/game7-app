@@ -19,5 +19,6 @@
 }
 
 .game-card:hover {
+  cursor: default;
   box-shadow: 0 10px 10px rgba(26,199,24,100), 0 15px 12px rgba(26,199,24,100);
 }

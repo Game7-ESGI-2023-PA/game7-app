@@ -9,7 +9,7 @@
 </div>
 
 <div class="card-container" *ngIf="searchResults.length; else noResults">
-  <app-game-card *ngFor="let result of searchResults" [game]="result" (click)="gameDetail(result.id)"></app-game-card>
+  <app-game-card *ngFor="let result of searchResults" [game]="result"></app-game-card>
 </div>
 
 <ng-template #noResults>

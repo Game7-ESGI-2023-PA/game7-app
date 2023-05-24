@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {GameInterface} from "../../interfaces/GameInterface";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-game-card',
@@ -8,6 +9,12 @@ import {GameInterface} from "../../interfaces/GameInterface";
 })
 export class GameCardComponent {
 
+  constructor(private router: Router) {
+  }
+
   @Input() game: GameInterface | undefined;
 
+  goToGameDetail() {
+    this.router.navigate(['game-detail', this.game?.id])
+  }
 }

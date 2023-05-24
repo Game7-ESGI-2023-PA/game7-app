@@ -32,9 +32,4 @@ export class GameSearchComponent implements OnInit {
       }
     })
   }
-
-  gameDetail(id: string) {
-    this.router.navigate(['game-detail', id]).then();
-  }
-
 }
