@@ -1,1 +1,17 @@
-<p>game-detail works!</p>
+<img class="game-bg-wall" src="{{ game?.bgUrl }}" />
+<div class="game-container">
+  <div class="game-info">
+    <img class="game-icon" src="{{ game?.imageUrl }}" />
+    <div class="game-title">
+      <h1>{{ game?.name }}</h1>
+    </div>
+  </div>
+  <div class="create-lobby-button">
+    <app-button
+      label="Créer un lobby"
+      (customClick)="goToCreateLobby()">
+    </app-button>
+  </div>
+</div>
+
+<p class="game-description">{{ game?.description }}</p>

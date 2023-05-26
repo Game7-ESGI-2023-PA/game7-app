@@ -12,4 +12,8 @@ export class GameService {
   search(query: string): Observable<GameInterface[]> {
     return this.http.get<GameInterface[]>(`/games?name=${query}`);
   }
+
+  findById(id: string): Observable<GameInterface> {
+    return this.http.get<GameInterface>(`/games/${id}`);
+  }
 }
