@@ -8,8 +8,20 @@ import { ButtonComponent } from './components/button/button.component';
 import { LobbyTableComponent } from './components/lobby-table/lobby-table.component';
 
 @NgModule({
-  declarations: [NavbarComponent, UserCardComponent, GameCardComponent, ButtonComponent, LobbyTableComponent],
-  exports: [UserCardComponent, GameCardComponent, NavbarComponent, ButtonComponent, LobbyTableComponent],
+  declarations: [
+    NavbarComponent,
+    UserCardComponent,
+    GameCardComponent,
+    ButtonComponent,
+    LobbyTableComponent,
+  ],
+  exports: [
+    UserCardComponent,
+    GameCardComponent,
+    NavbarComponent,
+    ButtonComponent,
+    LobbyTableComponent,
+  ],
   imports: [CommonModule, HttpClientModule],
 })
 export class SharedModule {}

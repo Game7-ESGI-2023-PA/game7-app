@@ -1,5 +1,5 @@
-import { GameInterface } from "./GameInterface";
-import { UserInterface } from "./UserInterface";
+import { GameInterface } from './GameInterface';
+import { UserInterface } from './UserInterface';
 
 export interface LobbyInterface {
   id: string;

@@ -1,7 +1,11 @@
 <div style="text-align: center; margin-top: 200px">
   <div *ngIf="!isAuthenticated; else elseBlock">
     <h1 style="font-size: 50px">Bienvenue sur <span style="color: #44d62c">Game7</span></h1>
-    <app-button style="margin-right: 30px" (customClick)="login()" label="Se connecter"></app-button>
+    <app-button
+      style="margin-right: 30px"
+      (customClick)="login()"
+      label="Se connecter"
+    ></app-button>
     <app-button
       (customClick)="register()"
       label="Créer un compte"

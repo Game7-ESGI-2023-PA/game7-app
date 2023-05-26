@@ -16,7 +16,7 @@ export class GameDetailComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private gameService: GameService,
-    private lobbyService: LobbyService,
+    private lobbyService: LobbyService
   ) {}
 
   ngOnInit(): void {
@@ -43,12 +43,11 @@ export class GameDetailComponent implements OnInit {
   }
 
   createLobby() {
-    if(this.game?.id) {
-      this.lobbyService.create(this.game?.id).subscribe((res) => {
+    if (this.game?.id) {
+      this.lobbyService.create(this.game?.id).subscribe(res => {
         this.game?.lobbies.push(res);
       });
     }
-
   }
 
   protected readonly undefined = undefined;

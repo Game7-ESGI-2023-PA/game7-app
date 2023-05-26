@@ -26,7 +26,7 @@ export class UnAuthorizedInterceptor implements HttpInterceptor {
               AuthService.logout();
               this.router.navigate(['/login']);
             }
-            if(this.router.url === 'register') {
+            if (this.router.url === 'register') {
               AuthService.logout();
             }
           }
