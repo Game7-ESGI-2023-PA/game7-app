@@ -5,10 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { ButtonComponent } from './components/button/button.component';
+import { LobbyTableComponent } from './components/lobby-table/lobby-table.component';
 
 @NgModule({
-  declarations: [NavbarComponent, UserCardComponent, GameCardComponent, ButtonComponent],
-  exports: [UserCardComponent, GameCardComponent, NavbarComponent, ButtonComponent],
+  declarations: [NavbarComponent, UserCardComponent, GameCardComponent, ButtonComponent, LobbyTableComponent],
+  exports: [UserCardComponent, GameCardComponent, NavbarComponent, ButtonComponent, LobbyTableComponent],
   imports: [CommonModule, HttpClientModule],
 })
 export class SharedModule {}

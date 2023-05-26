@@ -9,7 +9,6 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { GameSearchComponent } from './game-search/game-search.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { CreateLobbyComponent } from './create-lobby/create-lobby.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { CreateLobbyComponent } from './create-lobby/create-lobby.component';
     GameSearchComponent,
     GameDetailComponent,
     NotFoundComponent,
-    CreateLobbyComponent,
   ],
   exports: [],
   imports: [CommonModule, AppRoutingModule, SharedModule],
