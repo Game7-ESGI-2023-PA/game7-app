@@ -9,6 +9,7 @@ import {
 import { Observable, tap } from 'rxjs';
 
 import { Router } from '@angular/router';
+import { AuthService } from '../shared/services/auth.service';
 
 @Injectable()
 export class UnAuthorizedInterceptor implements HttpInterceptor {
@@ -22,7 +23,11 @@ export class UnAuthorizedInterceptor implements HttpInterceptor {
         error: err => {
           if (err instanceof HttpErrorResponse) {
             if (err.status === 401 && this.excludedUrls.indexOf(this.router.url) === -1) {
+              AuthService.logout();
               this.router.navigate(['/login']);
+            }
+            if(this.router.url === 'register') {
+              AuthService.logout();
             }
           }
         },
