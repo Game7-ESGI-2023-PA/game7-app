@@ -10,6 +10,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { GameSearchComponent } from './pages/game-search/game-search.component';
 import { GameDetailComponent } from './pages/game-detail/game-detail.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { CreateLobbyComponent } from './pages/create-lobby/create-lobby.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,12 @@ const routes: Routes = [
         data: { title: 'Profile' },
         canActivate: [unauthenticatedGuard],
         component: UserProfileComponent,
+      },
+      {
+        path: 'lobby-create/:gameId',
+        data: { title: 'Lobby' },
+        canActivate: [unauthenticatedGuard],
+        component: CreateLobbyComponent,
       },
     ],
   },
