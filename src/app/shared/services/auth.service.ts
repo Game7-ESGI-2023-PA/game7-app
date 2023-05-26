@@ -34,7 +34,7 @@ export class AuthService {
     localStorage.setItem('id_token', token);
   }
 
-  logout() {
+  public static logout() {
     localStorage.removeItem('id_token');
   }
 
