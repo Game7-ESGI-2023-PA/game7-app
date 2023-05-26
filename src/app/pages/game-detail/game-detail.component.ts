@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameInterface } from '../../shared/interfaces/GameInterface';
 import { GameService } from '../../shared/services/game.service';
+import { LobbyService } from 'src/app/shared/services/lobby.service';
 
 @Component({
   selector: 'app-game-detail',
@@ -14,7 +15,8 @@ export class GameDetailComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private gameService: GameService
+    private gameService: GameService,
+    private lobbyService: LobbyService,
   ) {}
 
   ngOnInit(): void {
@@ -40,8 +42,13 @@ export class GameDetailComponent implements OnInit {
     });
   }
 
-  goToCreateLobby() {
-    this.router.navigate(['lobby-create', this.game?.id])
+  createLobby() {
+    if(this.game?.id) {
+      this.lobbyService.create(this.game?.id).subscribe((res) => {
+        this.game?.lobbies.push(res);
+      });
+    }
+
   }
 
   protected readonly undefined = undefined;

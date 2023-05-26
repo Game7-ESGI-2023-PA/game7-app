@@ -33,3 +33,7 @@
 .create-lobby-button {
   margin-right: 5%;
 }
+
+.lobbies-list {
+  padding-bottom: 10px;
+}
