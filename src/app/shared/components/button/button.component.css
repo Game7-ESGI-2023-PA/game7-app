@@ -1,0 +1,33 @@
+.button {
+  background-color: #267d1e;
+  border-radius: 15px;
+  border: 1px solid black;
+  display: inline-block;
+  color: black;
+  font-size: 15px;
+  padding: 11px 33px;
+  text-decoration: none;
+}
+
+.button-secondary {
+  background-color: black;
+  border-radius: 28px;
+  border: 1px solid #267d1e;
+  display: inline-block;
+  color: #267d1e;
+  font-size: 15px;
+  padding: 11px 33px;
+  text-decoration: none;
+}
+
+button:disabled {
+  background-color: grey;
+}
+
+button:hover:enabled {
+  background-color: #44d62c;
+}
+
+button:active:enabled {
+  background-color: #267d1e;
+}

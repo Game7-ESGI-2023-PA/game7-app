@@ -1,31 +1,27 @@
 import { NgModule } from '@angular/core';
-import {CommonModule, NgOptimizedImage} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserCardComponent } from './components/user-card/user-card.component';
-import {MatCardModule} from "@angular/material/card";
-import {MatButtonModule} from "@angular/material/button";
+import { GameCardComponent } from './components/game-card/game-card.component';
+import { ButtonComponent } from './components/button/button.component';
+import { LobbyTableComponent } from './components/lobby-table/lobby-table.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     UserCardComponent,
     GameCardComponent,
-    FriendCardComponent,
+    ButtonComponent,
+    LobbyTableComponent,
   ],
-    exports: [
-      UserCardComponent,
-      GameCardComponent,
-      NavbarComponent,
-      FriendCardComponent
-    ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    MatCardModule,
-    MatButtonModule,
-    NgOptimizedImage,
-    MatMenuModule
+  exports: [
+    UserCardComponent,
+    GameCardComponent,
+    NavbarComponent,
+    ButtonComponent,
+    LobbyTableComponent,
   ],
+  imports: [CommonModule, HttpClientModule],
 })
-export class SharedModule { }
+export class SharedModule {}

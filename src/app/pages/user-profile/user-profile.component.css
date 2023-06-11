@@ -4,60 +4,60 @@
 }
 
 .profile-container {
-    display: flex;
+  display: flex;
 }
 
 .player-information-container {
-    display: flex;
-    justify-content: center;
-    margin-left: 5%;
-    margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  margin-left: 5%;
+  margin-top: 5%;
 }
 
 .img-pseudo-container {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .user-img {
-    padding: 10px;
-    width: 200px;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0px 3px 8px #267D1E;
-    margin-bottom: 20px;
+  padding: 10px;
+  width: 200px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0px 3px 8px #267d1e;
+  margin-bottom: 20px;
 }
 
 .user-pseudo {
-    text-align: center;
+  text-align: center;
 }
 
 .text-information {
-    display: flex;
-    flex-direction: column;
-    margin-left: 5em;
-    margin-right: 5em;
-    padding: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5em;
+  margin-right: 5em;
+  padding: 5px;
 }
 
-h1{
-    color: #267D1E;
-    margin: 0%;
+h1 {
+  color: #267d1e;
+  margin: 0%;
 }
 
 .information-list {
-    margin-top: 15px;
-    text-decoration: none;
+  margin-top: 15px;
+  text-decoration: none;
 }
 
 ul {
-    list-style-type: none;
-    padding: 0px;
+  list-style-type: none;
+  padding: 0px;
 }
 
 li {
-    margin: 30px;
+  margin: 30px;
 }
 
 .carrouselle-container {
@@ -70,7 +70,7 @@ li {
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content:  flex-start ;
+  justify-content: flex-start;
 }
 
 .carrouselle-title-container {
@@ -85,7 +85,6 @@ li {
   flex-direction: row;
   gap: 3em;
   justify-content: center;
-
 }
 
 .card-div {

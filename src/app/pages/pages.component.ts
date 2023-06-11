@@ -4,10 +4,9 @@ import { AuthService } from '../shared/services/auth.service';
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
-  styleUrls: ['./pages.component.css']
+  styleUrls: ['./pages.component.css'],
 })
 export class PagesComponent {
-
   showNavbar() {
     return AuthService.isAuthenticated();
   }

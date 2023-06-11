@@ -1,13 +1,9 @@
-<link rel="stylesheet" href="navbar.component.css">
 <header class="header-container">
-  <img src="assets/logo2.png" class="logo">
-  <div class="button-avatar">
-    <button mat-raised-button [matMenuTriggerFor]="menu" class="menu-button" color="primary">Menu</button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="redirectToHome()">Home</button>
-      <button mat-menu-item (click)="redirectToUsearSearch()">Recherche joueur</button>
-      <button mat-menu-item (click)="logout()">Se deconnecter</button>
-    </mat-menu>
-    <img class="avatar" src="../../../assets/placeholders/no_player_image.jpg" alt="Avatar" (click)="redirectToHome()">
+  <img src="assets/logo2.png" class="logo" />
+  <div class="links">
+    <a class="nav-link" (click)="redirectToGameSearch()">Recherche Jeu</a>
+    <a class="nav-link" (click)="redirectToUserSearch()">Recherche joueur</a>
+    <a class="nav-link" (click)="logout()">Se deconnecter</a>
+    <a class="nav-link" (click)="redirectToHome()">Profile</a>
   </div>
 </header>

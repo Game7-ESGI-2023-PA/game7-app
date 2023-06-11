@@ -1,41 +1,30 @@
-
 .header-container {
-  padding: 10px 0 8px;
   width: 100%;
   box-shadow: 0 4px 2px -2px green;
   display: flex;
   justify-content: space-between;
-
 }
- .logo{
-   background-image: url("src/assets/logo.png");
-   width : 50px;
-   height : 50px;
-   margin: 1% 1% 1px;
-   margin-left: 25px;
- }
 
- .menu-button{
-   color: #1AC718;
-   background-color: black;
-   box-shadow: 0 4px 2px -2px green;
-   padding-left: 30px;
-   padding-right: 30px;
-   margin-right: 2em;
-   margin-bottom: 2em;
-   margin-top: 1em;
- }
-
-.button-avatar {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  
+.logo {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
 }
- .avatar {
-  border-radius: 50%;
-  width : 50px;
-  height : 50px;
-  margin-right: 2em;
-  margin-top: 1px;
- }
+
+.links {
+  padding: 20px;
+}
+
+.nav-link {
+  margin-right: 10px;
+  color: #1ac718;
+  background-color: black;
+  box-shadow: 0 4px 2px -2px green;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.nav-link:hover {
+  box-shadow: 0 8px 2px -2px green;
+  cursor: default;
+}

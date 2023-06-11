@@ -5,18 +5,15 @@ import { UserService } from 'src/app/shared/services/user.service';
 @Component({
   selector: 'app-user-search',
   templateUrl: './user-search.component.html',
-  styleUrls: ['./user-search.component.css']
+  styleUrls: ['./user-search.component.css'],
 })
 export class UserSearchComponent implements OnInit {
-
   searchResults: UserInterface[] = [];
 
-  constructor(
-    private userService: UserService
-  ){}
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    this.searchRequest("");
+    this.searchRequest('');
   }
 
   onSearch(input: string) {
@@ -25,10 +22,9 @@ export class UserSearchComponent implements OnInit {
 
   searchRequest(query: string) {
     this.userService.search(query).subscribe({
-      next: (results) => {
+      next: results => {
         this.searchResults = results;
-      }
-    })
+      },
+    });
   }
-
 }

@@ -1,26 +1,38 @@
-<div>
-  <form [formGroup]="form" class="login-form">
-    <legend>Login</legend>
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Mail :</mat-label>
-        <input name="email" matInput placeholder="email" formControlName="email" />
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Password :</mat-label>
+<div class="container">
+  <div class="image-side">
+    <img class="login-img" src="assets/login_image.jpg" />
+  </div>
+  <div class="form-side">
+    <form [formGroup]="form">
+      <legend class="login-legend">Identifiez vous</legend>
+      <div class="input-container">
+        <label for="email">Adresse email</label>
         <input
-          matInput
+          class="input-field"
+          id="email"
+          placeholder="mon-email@gmail.com"
+          type="email"
+          formControlName="email"
+        />
+      </div>
+      <div class="input-container">
+        <label>Mot de passe</label>
+        <input
+          class="input-field"
           placeholder="password"
           name="password"
           formControlName="password"
           type="password"
         />
-      </mat-form-field>
-    </p>
-    <div class="form-buttons">
-      <button mat-raised-button color="primary" (click)="login()">Login</button>
-    </div>
-  </form>
+      </div>
+      <div class="form-buttons">
+        <app-button
+          label="Connection"
+          (customClick)="login()"
+          [disabled]="form.invalid"
+        ></app-button>
+      </div>
+      <p><a (click)="redirectToRegister()">Cliquez ici pour vous inscrire</a></p>
+    </form>
+  </div>
 </div>

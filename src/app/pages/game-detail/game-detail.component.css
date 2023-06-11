@@ -1,0 +1,39 @@
+.game-bg-wall {
+  width: 90%;
+  height: 40vh;
+  border-bottom: 2px solid #267d1e;
+  margin: 5%;
+  border-radius: 0.4em;
+  box-shadow: 0 5px 15px rgba(26, 199, 24, 100), 0 5px 5px rgba(26, 199, 24, 100);
+  justify-content: center;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: row;
+  height: 10vh;
+  margin-left: 5%;
+}
+
+.game-title {
+  margin-left: 10px;
+}
+
+.game-description {
+  margin-left: 5%;
+  margin-top: 20px;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.create-lobby-button {
+  margin-right: 5%;
+}
+
+.lobbies-list {
+  padding-bottom: 10px;
+}

@@ -7,8 +7,5 @@
     "types": ["jest"]
   },
   "files": ["polyfills.ts"],
-  "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
-  ]
+  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }

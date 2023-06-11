@@ -1,4 +1,4 @@
-import { UserInterface } from "./UserInterface";
+import { UserInterface } from './UserInterface';
 
 export interface FriendRequestInterface {
   id: string;
@@ -12,7 +12,7 @@ export interface FriendsInterface {
 }
 
 export enum Status {
-  Pending = "pending",
-  Accepted = "accepted",
-  Refused = "refused"
+  Pending = 'pending',
+  Accepted = 'accepted',
+  Refused = 'refused',
 }

@@ -1,0 +1,16 @@
+<ul class="responsive-table">
+  <li class="table-header">
+    <div class="col col-1">Leader</div>
+    <div class="col col-2">Joueurs</div>
+    <div class="col col-3">Status</div>
+    <div class="col col-4"></div>
+  </li>
+  <li *ngFor="let lobby of lobbies" class="table-row">
+    <div class="col col-1">{{ lobby.master.nickname }}</div>
+    <div class="col col-2">{{ lobby.players.length }}/{{ maxPlayers }}</div>
+    <div class="col col-3">{{ lobby.status }}</div>
+    <div class="col col-4">
+      <app-button label="Voir" (customClick)="redirectToLobby()"></app-button>
+    </div>
+  </li>
+</ul>

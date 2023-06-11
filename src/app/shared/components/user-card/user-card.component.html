@@ -1,11 +1,11 @@
-<div>
-  <mat-card class="card-5 card">
-    <img  [src]="getPhotoUrl()"  mat-card-image class="card-image" height="40%" width="40%">
-    <mat-card-content>
-      <p style="color: #1AC718; text-align: center; margin: 3px; font-weight: bold; font-size: large;"> {{ user?.nickname }} </p>
-    </mat-card-content>
-    <mat-card-actions style="display: flex; justify-content: center;">
-      <button mat-raised-button color="grey" (click)="goToUserProfile()"><h3>Voir le profil</h3></button>
-    </mat-card-actions>
-  </mat-card>
+<div (click)="goToUserProfile()" class="mini-card">
+  <div class="user-image-container">
+    <img class="avatar" src="../../../assets/placeholders/no_player_image.jpg" alt="Avatar" />
+  </div>
+  <div class="information">
+    <p class="user-name">
+      {{ user?.nickname }}
+    </p>
+  </div>
+  <div class="input-container"></div>
 </div>

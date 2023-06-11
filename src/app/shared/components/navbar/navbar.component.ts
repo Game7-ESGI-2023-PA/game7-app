@@ -1,28 +1,31 @@
 import { Component, Input } from '@angular/core';
-import {Router} from "@angular/router";
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent  {
-
+export class NavbarComponent {
   @Input() photoUrl: string | undefined;
 
-  constructor( private router: Router) {
-  }
+  constructor(private router: Router) {}
 
   redirectToHome() {
     this.router.navigate(['/user-profile']);
   }
 
-  redirectToUsearSearch() {
+  redirectToUserSearch() {
     this.router.navigate(['/user-search']);
   }
 
+  redirectToGameSearch() {
+    this.router.navigate(['/game-search']);
+  }
+
   logout() {
-    localStorage.removeItem("id_token");
+    AuthService.logout();
     this.router.navigate(['/login']);
   }
 }
