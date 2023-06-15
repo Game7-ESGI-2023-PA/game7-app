@@ -1,0 +1,14 @@
+<div class="lobby-info-container">
+  <img src="{{lobby?.game?.imageUrl}}" class="game-image">
+  <h1>{{lobby?.game?.name}}</h1>
+  <p>{{lobby?.game?.description}}</p>
+  <h2>Game Master</h2>
+  <app-user-card [user]="lobby?.master"></app-user-card>
+  <h2>Joueurs</h2>
+  <div *ngIf="getNonMasterPlayers()?.length; else noResults">
+    <app-user-card *ngFor="let result of getNonMasterPlayers()" [user]="result"></app-user-card>
+  </div>
+  <ng-template #noResults>
+    <div style="text-align: center; margin-top: 5vh">Aucun Joueur n'a rejoint le lobby.</div>
+  </ng-template>
+</div>

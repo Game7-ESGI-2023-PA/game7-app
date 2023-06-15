@@ -1,0 +1,14 @@
+.game-lobby-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.game-lobby-detail {
+  flex: 1;
+  border-right: #267d1e solid 2px;
+}
+
+.game-lobby-game {
+  flex: 4;
+}

@@ -14,4 +14,8 @@ export class LobbyService {
       game: `/api/games/${gameId}`,
     });
   }
+
+  findById(lobbyId: string): Observable<LobbyInterface> {
+    return this.http.get<LobbyInterface>(`/game_lobbies/${lobbyId}`)
+  }
 }
