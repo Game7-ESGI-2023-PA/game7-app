@@ -26,7 +26,7 @@ export class LoginComponent {
         })
         .subscribe({
           next: () => {
-            this.router.navigate(['/']).then(); // TODO redirect to home
+            this.router.navigate(['/game-search']).then(); // TODO redirect to home
           },
           error: err => {
             console.log(err); // TODO error management

@@ -4,12 +4,12 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PagesComponent } from './pages/pages.component';
 import { UserSearchComponent } from './pages/user-search/user-search.component';
-import { LandingComponent } from './pages/landing/landing.component';
 import { alreadyAuthenticatedGuard, unauthenticatedGuard } from './auth/auth.guard';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { GameSearchComponent } from './pages/game-search/game-search.component';
 import { GameDetailComponent } from './pages/game-detail/game-detail.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { LobbyDetailComponent } from "./pages/lobby-detail/lobby-detail.component";
 
 const routes: Routes = [
   {
@@ -26,12 +26,6 @@ const routes: Routes = [
     path: '',
     component: PagesComponent,
     children: [
-      {
-        path: '',
-        data: { title: 'Game7' },
-        component: LandingComponent,
-        canActivate: [unauthenticatedGuard],
-      },
       {
         path: 'game-search',
         data: { title: 'Recherche un Jeu' },
@@ -55,6 +49,12 @@ const routes: Routes = [
         data: { title: 'Game' },
         canActivate: [unauthenticatedGuard],
         component: GameDetailComponent,
+      },
+      {
+        path: 'lobby-detail/:id',
+        data: { title: 'Lobby' },
+        canActivate: [unauthenticatedGuard],
+        component: LobbyDetailComponent,
       },
       {
         path: 'user-profile',
