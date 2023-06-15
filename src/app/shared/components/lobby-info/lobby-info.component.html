@@ -11,4 +11,5 @@
   <ng-template #noResults>
     <div style="text-align: center; margin-top: 5vh">Aucun Joueur n'a rejoint le lobby.</div>
   </ng-template>
+  <app-button *ngIf="canJoin()" class="join-lobby-button" label="Rejoindre"></app-button>
 </div>
