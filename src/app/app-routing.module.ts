@@ -34,12 +34,6 @@ const routes: Routes = [
         component: GameSearchComponent,
       },
       {
-        path: 'game-search',
-        data: { title: 'Recherche un Jeu' },
-        canActivate: [unauthenticatedGuard],
-        component: GameSearchComponent,
-      },
-      {
         path: 'user-search',
         data: { title: 'Recherche un joueur' },
         canActivate: [unauthenticatedGuard],
