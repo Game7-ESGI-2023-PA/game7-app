@@ -9,6 +9,8 @@ import { AuthService } from '../../shared/services/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+
+  errorMessage = "";
   form: FormGroup = this.fb.group({
     email: ['', [Validators.email, Validators.required]],
     password: ['', Validators.required],
@@ -29,7 +31,12 @@ export class LoginComponent {
             this.router.navigate(['/game-search']).then(); // TODO redirect to home
           },
           error: err => {
-            console.log(err); // TODO error management
+            if (err.error.code === 401) {
+              this.errorMessage = "Veuillez vérifier vos identifiants."
+            }
+            if (err.error.code === 500) {
+              this.router.navigate(['server-error']).then();
+            }
           },
         });
     }

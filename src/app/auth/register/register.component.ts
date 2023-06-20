@@ -16,6 +16,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  errorMessage = "";
   form: FormGroup = new FormGroup({});
 
   emailCheck = false;
@@ -66,11 +67,10 @@ export class RegisterComponent implements OnInit {
           })
           .subscribe({
             next: () => {
-              this.router.navigate(['/login']);
+              this.router.navigate(['/login']).then();
             },
             error: error => {
-              // TODO: error management
-              console.log(error);
+              this.errorMessage = "Ces identifiants sont déjà utilisés.";
             },
           });
       }

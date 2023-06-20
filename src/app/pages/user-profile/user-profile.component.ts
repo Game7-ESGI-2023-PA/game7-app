@@ -35,7 +35,6 @@ export class UserProfileComponent implements OnInit {
         friends: this.friendsService.myFriends(),
         me: this.userService.me(),
       }).subscribe(res => {
-        console.log(res);
         (this.sentFriendRequests = res.sentRequest),
           (this.receivedFriendRequests = res.receivedRequest),
           (this.myFriends = res.friends.friends);
