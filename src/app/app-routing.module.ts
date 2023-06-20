@@ -10,6 +10,7 @@ import { GameSearchComponent } from './pages/game-search/game-search.component';
 import { GameDetailComponent } from './pages/game-detail/game-detail.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LobbyDetailComponent } from "./pages/lobby-detail/lobby-detail.component";
+import { ErrorComponent } from "./pages/error/error.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,12 @@ const routes: Routes = [
     path: '',
     component: PagesComponent,
     children: [
+      {
+        path: '',
+        data: { title: 'Recherche un Jeu' },
+        canActivate: [unauthenticatedGuard],
+        component: GameSearchComponent,
+      },
       {
         path: 'game-search',
         data: { title: 'Recherche un Jeu' },
@@ -63,6 +70,10 @@ const routes: Routes = [
         component: UserProfileComponent,
       },
     ],
+  },
+  {
+    path: 'server-error',
+    component: ErrorComponent,
   },
   {
     path: '**',

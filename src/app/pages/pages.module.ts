@@ -9,6 +9,7 @@ import { GameSearchComponent } from './game-search/game-search.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LobbyDetailComponent } from './lobby-detail/lobby-detail.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { LobbyDetailComponent } from './lobby-detail/lobby-detail.component';
     GameDetailComponent,
     NotFoundComponent,
     LobbyDetailComponent,
+    ErrorComponent,
   ],
   exports: [],
   imports: [CommonModule, AppRoutingModule, SharedModule],
