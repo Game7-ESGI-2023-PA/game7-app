@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LobbyInterface } from '../interfaces/LobbyInterface';
 import { Observable } from 'rxjs';
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +18,19 @@ export class LobbyService {
 
   findById(lobbyId: string): Observable<LobbyInterface> {
     return this.http.get<LobbyInterface>(`/game_lobbies/${lobbyId}`)
+  }
+
+  joinLobby(lobbyId: string): Observable<LobbyInterface> {
+    return this.http.put<LobbyInterface>(`/game_lobbies/${lobbyId}/join`, {});
+  }
+
+  getLobbyStream(lobbyId: string): Observable<LobbyInterface> {
+    const url = new URL(environment.mercureUrl);
+    url.searchParams.append('topic', `${environment.apiUrl}/game_lobbies/${lobbyId}`);
+    return new Observable<LobbyInterface>((observer) => {
+      const eventSource = new EventSource(url);
+      eventSource.onmessage = (event) => observer.next(JSON.parse(event.data) as LobbyInterface);
+      eventSource.onerror = (error) => observer.error(error);
+    })
   }
 }
