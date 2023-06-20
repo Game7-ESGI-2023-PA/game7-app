@@ -33,7 +33,6 @@ export class GameDetailComponent implements OnInit {
   setGame(gameId: string) {
     this.gameService.findById(gameId).subscribe({
       next: res => {
-        console.log(res);
         this.game = res;
       },
       error: err => {
@@ -50,5 +49,4 @@ export class GameDetailComponent implements OnInit {
     }
   }
 
-  protected readonly undefined = undefined;
 }
