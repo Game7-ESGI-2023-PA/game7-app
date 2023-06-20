@@ -24,7 +24,7 @@
   padding: 10px;
   width: 200px;
   height: auto;
-  border-radius: 20px;
+  border-radius: 0.5rem;
   box-shadow: 0px 3px 8px #267d1e;
   margin-bottom: 20px;
 }
@@ -67,7 +67,7 @@ li {
   padding-top: 5px;
   padding-bottom: 3em;
   background-color: #404040;
-  border-radius: 20px;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

@@ -1,6 +1,6 @@
 .button {
   background-color: #267d1e;
-  border-radius: 15px;
+  border-radius: 0.5rem;
   border: 1px solid black;
   display: inline-block;
   color: black;
@@ -11,7 +11,7 @@
 
 .button-secondary {
   background-color: black;
-  border-radius: 28px;
+  border-radius: 0.5rem;
   border: 1px solid #267d1e;
   display: inline-block;
   color: #267d1e;

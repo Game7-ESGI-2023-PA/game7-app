@@ -1,4 +1,5 @@
 .game-lobby-container {
+  padding-inline: 15rem;
   display: flex;
   flex-direction: row;
   height: 100vh;
@@ -6,9 +7,15 @@
 
 .game-lobby-detail {
   flex: 1;
-  border-right: #267d1e solid 2px;
 }
 
 .game-lobby-game {
   flex: 4;
+  padding: 2rem;
+}
+
+.game-renderer {
+  width: 100%;
+  height: 80%;
+  background-color: #404040;
 }
