@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LobbyInterface } from "../../shared/interfaces/LobbyInterface";
 import { LobbyService } from "../../shared/services/lobby.service";
@@ -15,13 +15,20 @@ export class LobbyDetailComponent implements OnInit {
   lobby: LobbyInterface | undefined = undefined;
   currentUser: UserInterface | undefined = undefined;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private lobbyService: LobbyService, private userService: UserService) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private lobbyService: LobbyService,
+    private userService: UserService,
+    private changeDetectorRef: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
       const lobbyId = params.get('id');
       if (lobbyId !== null) {
         this.setLobby(lobbyId);
+        this.initLobbyEventSourcing(lobbyId);
       } else {
         this.router.navigate(['not-found']).then();
       }
@@ -40,4 +47,12 @@ export class LobbyDetailComponent implements OnInit {
     })
   }
 
+  initLobbyEventSourcing(lobbyId: string) {
+    this.lobbyService.getLobbyStream(lobbyId).subscribe({
+      next: res => {
+        this.lobby = res;
+        this.changeDetectorRef.detectChanges();
+      }
+    })
+  }
 }

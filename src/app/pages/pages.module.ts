@@ -10,6 +10,8 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LobbyDetailComponent } from './lobby-detail/lobby-detail.component';
 import { ErrorComponent } from './error/error.component';
+import { LobbyInfoComponent } from "./lobby-detail/lobby-info/lobby-info.component";
+import { LobbyTableComponent } from "./game-detail/lobby-table/lobby-table.component";
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { ErrorComponent } from './error/error.component';
     GameDetailComponent,
     NotFoundComponent,
     LobbyDetailComponent,
+    LobbyInfoComponent,
+    LobbyTableComponent,
     ErrorComponent,
   ],
   exports: [],

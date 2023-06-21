@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { LobbyInterface } from '../../interfaces/LobbyInterface';
+import { LobbyInterface } from '../../../shared/interfaces/LobbyInterface';
 import { Router } from "@angular/router";
 
 @Component({
