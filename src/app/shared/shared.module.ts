@@ -7,6 +7,8 @@ import { GameCardComponent } from './components/game-card/game-card.component';
 import { ButtonComponent } from './components/button/button.component';
 import { LobbyTableComponent } from './components/lobby-table/lobby-table.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { LeftMessageComponent } from './components/left-message/left-message.component';
+import { RightMessageComponent } from './components/right-message/right-message.component';
 
 @NgModule({
   declarations: [
@@ -16,14 +18,17 @@ import { ChatComponent } from './components/chat/chat.component';
     ButtonComponent,
     LobbyTableComponent,
     ChatComponent,
+    LeftMessageComponent,
+    RightMessageComponent,
   ],
-  exports: [
-    UserCardComponent,
-    GameCardComponent,
-    NavbarComponent,
-    ButtonComponent,
-    LobbyTableComponent,
-  ],
+    exports: [
+        UserCardComponent,
+        GameCardComponent,
+        NavbarComponent,
+        ButtonComponent,
+        LobbyTableComponent,
+        ChatComponent,
+    ],
   imports: [CommonModule, HttpClientModule],
 })
 export class SharedModule {}
