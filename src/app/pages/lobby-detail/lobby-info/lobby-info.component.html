@@ -1,17 +1,19 @@
 <div class="lobby-info-container">
-  <div class="lobby-game-title">
-    <img src="{{this.lobby?.game?.imageUrl}}" class="game-image">
-    <h1>{{this.lobby?.game?.name}}</h1>
-  </div>
-<!--  <p>{{this.lobby?.game?.description}}</p>-->
-  <h2>Game Master</h2>
-  <app-user-card [user]="this.lobby?.master"></app-user-card>
-  <h2>Joueurs ({{this.lobby?.players?.length}}/{{this.lobby?.game?.maxPlayers}})</h2>
-  <div *ngIf="getNonMasterPlayers()?.length; else noResults">
-    <app-user-card *ngFor="let result of getNonMasterPlayers()" [user]="result"></app-user-card>
-  </div>
-  <ng-template #noResults>
-    <div style="text-align: center; margin-top: 5vh">Aucun Joueur n'a rejoint le lobby.</div>
-  </ng-template>
-  <app-button *ngIf="canJoin()" class="join-lobby-button" label="Rejoindre" (customClick)="joinLobby()"></app-button>
+  <app-tabs>
+    <app-tab tabTitle="Chat">
+      <app-chat [currentUser]="currentUser" [messages]="lobby?.messages" (sendMethod)="sendMessage($event)"></app-chat>
+    </app-tab>
+    <app-tab tabTitle="Informations">
+      <h2>Game Master</h2>
+      <app-user-card [user]="this.lobby?.master"></app-user-card>
+      <h2>Joueurs ({{this.lobby?.players?.length}}/{{this.lobby?.game?.maxPlayers}})</h2>
+      <div *ngIf="getNonMasterPlayers()?.length; else noResults">
+        <app-user-card *ngFor="let result of getNonMasterPlayers()" [user]="result"></app-user-card>
+      </div>
+      <ng-template #noResults>
+        <div style="text-align: center; margin-top: 5vh">Aucun Joueur n'a rejoint le lobby.</div>
+      </ng-template>
+    </app-tab>
+  </app-tabs>
+
 </div>

@@ -16,28 +16,16 @@ export class LobbyInfoComponent {
   constructor(private lobbyService: LobbyService) {
   }
 
-  canJoin() {
-    if(this.lobby?.players.some((player) => player.id === this.currentUser?.id)) {
-      return false;
-    }
-    return this.lobby?.game.maxPlayers !== this.lobby?.players.length;
-  }
-
   getNonMasterPlayers() {
-    console.log('childinh', this.lobby);
     if(this.lobby?.players) {
       return this.lobby?.players.filter((player) => player.id !== this.lobby?.master.id)
     }
     return [];
   }
 
-  joinLobby() {
-    if (this.lobby?.id && this.canJoin()) {
-      this.lobbyService.joinLobby(this.lobby?.id).subscribe({
-        next: res => {
-          // TODO: wait for the sse or set lobby here ?
-        }
-      })
+  sendMessage(event: string) {
+    if(this.lobby?.id){
+      this.lobbyService.sendMessage(this.lobby.id, event).subscribe();
     }
   }
 }

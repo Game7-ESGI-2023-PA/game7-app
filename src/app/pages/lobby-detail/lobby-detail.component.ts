@@ -27,6 +27,7 @@ export class LobbyDetailComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(params => {
       const lobbyId = params.get('id');
       if (lobbyId !== null) {
+        // TODO: secure -> only retrieve if the lobby is joined
         this.setLobby(lobbyId);
         this.initLobbyEventSourcing(lobbyId);
       } else {
@@ -55,4 +56,26 @@ export class LobbyDetailComponent implements OnInit {
       }
     })
   }
+
+  joinLobby() {
+    if (this.lobby?.id && this.canJoin()) {
+      this.lobbyService.joinLobby(this.lobby?.id).subscribe({
+        next: res => {
+          // TODO: wait for the sse or set lobby here ?
+        }
+      })
+    }
+  }
+
+  canJoin() {
+    if(this.lobby?.players.some((player) => player.id === this.currentUser?.id)) {
+      return false;
+    }
+    return this.lobby?.game.maxPlayers !== this.lobby?.players.length;
+  }
+
+  isJoined(): boolean {
+    return !!this.lobby?.players.some((player) => player.id === this.currentUser?.id);
+  }
 }
+
