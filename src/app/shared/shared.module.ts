@@ -7,8 +7,7 @@ import { GameCardComponent } from './components/game-card/game-card.component';
 import { ButtonComponent } from './components/button/button.component';
 import { LobbyTableComponent } from './components/lobby-table/lobby-table.component';
 import { ChatComponent } from './components/chat/chat.component';
-import { LeftMessageComponent } from './components/left-message/left-message.component';
-import { RightMessageComponent } from './components/right-message/right-message.component';
+
 
 @NgModule({
   declarations: [
@@ -18,8 +17,6 @@ import { RightMessageComponent } from './components/right-message/right-message.
     ButtonComponent,
     LobbyTableComponent,
     ChatComponent,
-    LeftMessageComponent,
-    RightMessageComponent,
   ],
     exports: [
         UserCardComponent,
