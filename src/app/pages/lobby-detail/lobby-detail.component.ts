@@ -59,11 +59,7 @@ export class LobbyDetailComponent implements OnInit {
 
   joinLobby() {
     if (this.lobby?.id && this.canJoin()) {
-      this.lobbyService.joinLobby(this.lobby?.id).subscribe({
-        next: res => {
-          // TODO: wait for the sse or set lobby here ?
-        }
-      })
+      this.lobbyService.joinLobby(this.lobby?.id).subscribe()
     }
   }
 

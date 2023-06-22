@@ -19,10 +19,6 @@ export class RegisterComponent implements OnInit {
   errorMessage = "";
   form: FormGroup = new FormGroup({});
 
-  emailCheck = false;
-  passwordCheck = false;
-  confirmPasswordCheck = false;
-
   constructor(private fb: FormBuilder, private router: Router, private auth: AuthService) {}
 
   ngOnInit() {
