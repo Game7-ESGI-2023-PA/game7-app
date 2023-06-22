@@ -6,6 +6,8 @@ import { UserCardComponent } from './components/user-card/user-card.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { ButtonComponent } from './components/button/button.component';
 import { LobbyTableComponent } from './components/lobby-table/lobby-table.component';
+import { ChatComponent } from './components/chat/chat.component';
+
 
 @NgModule({
   declarations: [
@@ -14,14 +16,16 @@ import { LobbyTableComponent } from './components/lobby-table/lobby-table.compon
     GameCardComponent,
     ButtonComponent,
     LobbyTableComponent,
+    ChatComponent,
   ],
-  exports: [
-    UserCardComponent,
-    GameCardComponent,
-    NavbarComponent,
-    ButtonComponent,
-    LobbyTableComponent,
-  ],
+    exports: [
+        UserCardComponent,
+        GameCardComponent,
+        NavbarComponent,
+        ButtonComponent,
+        LobbyTableComponent,
+        ChatComponent,
+    ],
   imports: [CommonModule, HttpClientModule],
 })
 export class SharedModule {}
