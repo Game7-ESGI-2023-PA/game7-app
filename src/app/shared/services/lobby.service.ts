@@ -24,6 +24,10 @@ export class LobbyService {
     return this.http.put<LobbyInterface>(`/game_lobbies/${lobbyId}/join`, {});
   }
 
+  sendMessage(lobbyId: string, message: string): Observable<LobbyInterface> {
+    return this.http.put<LobbyInterface>(`/game_lobbies/${lobbyId}/send_message`, { message: message});
+  }
+
   getLobbyStream(lobbyId: string): Observable<LobbyInterface> {
     const url = new URL(environment.mercureUrl);
     url.searchParams.append('topic', `${environment.apiUrl}/game_lobbies/${lobbyId}`);
