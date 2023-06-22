@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { ButtonComponent } from './components/button/button.component';
-import { LobbyTableComponent } from './components/lobby-table/lobby-table.component';
 import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
@@ -14,7 +13,6 @@ import { ChatComponent } from './components/chat/chat.component';
     UserCardComponent,
     GameCardComponent,
     ButtonComponent,
-    LobbyTableComponent,
     ChatComponent,
   ],
   exports: [
@@ -22,7 +20,6 @@ import { ChatComponent } from './components/chat/chat.component';
     GameCardComponent,
     NavbarComponent,
     ButtonComponent,
-    LobbyTableComponent,
     ChatComponent,
   ],
   imports: [CommonModule, HttpClientModule],
