@@ -1,27 +1,28 @@
-<section class="msger">
+<section class="chat-box">
 
-  <ng-container *ngFor="let message of messages">
-    <div class="msg" [ngClass]="{'left-msg': message.senderId !== currentUser?.id, 'right-msg': message.senderId === currentUser?.id}">
-      <div class="msg-img" *ngIf="message.senderId !== currentUser?.id"></div>
-      <div class="msg-img" *ngIf="message.senderId === currentUser?.id"></div>
+  <div class="chat-messages">
+    <ng-container *ngFor="let message of messages">
+      <div class="msg" [ngClass]="{'left-msg': message.senderId !== currentUser?.id, 'right-msg': message.senderId === currentUser?.id}">
+        <div class="msg-img" *ngIf="message.senderId !== currentUser?.id"></div>
+        <div class="msg-img" *ngIf="message.senderId === currentUser?.id"></div>
 
-      <div class="msg-bubble">
-        <div class="msg-info">
-          <div class="msg-info-name">
-            {{ message.senderName }}
+        <div class="msg-bubble">
+          <div class="msg-info">
+            <div class="msg-info-name">
+              {{ message.senderName }}
+            </div>
+            <div class="msg-info-time">
+              {{ message.date }}
+            </div>
           </div>
-          <div class="msg-info-time">
-            {{ message.date }}
-          </div>
-        </div>
 
-        <div class="msg-text">
-          {{ message.content }}
+          <div class="msg-text">
+            {{ message.content }}
+          </div>
         </div>
       </div>
-    </div>
-  </ng-container>
-
+    </ng-container>
+  </div>
   <div class="msger-inputarea">
     <input type="text" class="msger-input" placeholder="Enter your message..." #inputElement>
     <button class="msger-send-btn" (click)="sendMessage(inputElement.value)" >Send</button>
