@@ -20,6 +20,16 @@
   text-decoration: none;
 }
 
+.button-alert{
+  background-color: orange;
+  border-radius: 0.5rem;
+  display: inline-block;
+  color: black;
+  font-size: 15px;
+  padding: 11px 33px;
+  text-decoration: none;
+}
+
 button:disabled {
   background-color: grey;
 }

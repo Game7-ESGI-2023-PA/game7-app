@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit {
               this.router.navigate(['/login']).then();
             },
             error: error => {
-              this.errorMessage = "Ces identifiants sont déjà utilisés.";
+              this.errorMessage = error.error.message;
             },
           });
       }

@@ -9,3 +9,11 @@
 >
   {{ label }}
 </button>
+<button
+  *ngIf="color === ButtonColor.ALERT"
+  class="button-alert"
+  (click)="call()"
+  [disabled]="disabled"
+>
+  {{ label }}
+</button>

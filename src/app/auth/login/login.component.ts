@@ -10,6 +10,9 @@ import { AuthService } from '../../shared/services/auth.service';
 })
 export class LoginComponent {
 
+  // TODO: server error redirect to error page
+  // TODO: formbuilder message for tips
+
   errorMessage = "";
   form: FormGroup = this.fb.group({
     email: ['', [Validators.email, Validators.required]],
@@ -34,7 +37,7 @@ export class LoginComponent {
             if (err.error.code === 401) {
               this.errorMessage = "Veuillez vérifier vos identifiants."
             }
-            if (err.error.code === 500) {
+            else {
               this.router.navigate(['server-error']).then();
             }
           },
