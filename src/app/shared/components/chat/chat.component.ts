@@ -1,4 +1,14 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from "@angular/core";
 import { MessageInterface } from "../../interfaces/Message";
 import {UserInterface} from "../../interfaces/UserInterface";
 import {UserService} from "../../services/user.service";
@@ -8,7 +18,7 @@ import {UserService} from "../../services/user.service";
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent {
+export class ChatComponent implements AfterViewInit, OnChanges {
 
   @Input()
   currentUser : UserInterface | undefined ;
@@ -16,12 +26,29 @@ export class ChatComponent {
   @Input()
   messages: MessageInterface[] | undefined;
 
+  @ViewChild('scrolling') scrollingComponent: ElementRef | undefined;
+
   constructor( private userService : UserService) {}
 
   @Output() sendMethod = new EventEmitter<string>();
 
   sendMessage(message: string) {
     this.sendMethod.emit(message);
+    this.scrollChatToBottom(); // TODO: not working on first message after load
   }
 
+  ngAfterViewInit(): void {
+    this.scrollChatToBottom();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.scrollChatToBottom()
+  }
+
+  private scrollChatToBottom() {
+    if (this.scrollingComponent && this.scrollingComponent.nativeElement) {
+      const container = this.scrollingComponent.nativeElement;
+      container.scrollTop = container.scrollHeight;
+    }
+  }
 }

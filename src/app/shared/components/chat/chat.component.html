@@ -1,6 +1,6 @@
 <section class="chat-box">
 
-  <div class="chat-messages">
+  <div class="chat-messages" #scrolling>
     <ng-container *ngFor="let message of messages">
       <div class="msg" [ngClass]="{'left-msg': message.senderId !== currentUser?.id, 'right-msg': message.senderId === currentUser?.id}">
         <div class="msg-img" *ngIf="message.senderId !== currentUser?.id"></div>
