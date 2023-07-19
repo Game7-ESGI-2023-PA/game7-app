@@ -5,16 +5,18 @@
 }
 
 .image-side {
+  flex: 3;
   height: 100vh;
 }
 
 .image-side img {
   height: 100%;
-  width: 40lh;
+  width: 100%;
   object-fit: cover; /* This will make sure the image scales properly */
 }
 
 .form-side {
+  flex: 1;
   padding-left: 10vh;
 }
 
