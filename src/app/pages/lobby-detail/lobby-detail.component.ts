@@ -41,6 +41,7 @@ export class LobbyDetailComponent implements OnInit {
     this.lobbyService.findById(id).subscribe({
       next: res => {
         this.lobby = res;
+        console.log(this.lobby.lobbyGamingData)
       },
       error: err => {
         console.log(err);
@@ -52,6 +53,7 @@ export class LobbyDetailComponent implements OnInit {
     this.lobbyService.getLobbyStream(lobbyId).subscribe({
       next: res => {
         this.lobby = res;
+        console.log(res);
         this.changeDetectorRef.detectChanges();
       }
     })
@@ -70,8 +72,18 @@ export class LobbyDetailComponent implements OnInit {
     return this.lobby?.game.maxPlayers !== this.lobby?.players.length;
   }
 
+  isGameMaster() {
+    return this.currentUser?.id === this.lobby?.master.id
+  }
+
   isJoined(): boolean {
     return !!this.lobby?.players.some((player) => player.id === this.currentUser?.id);
+  }
+
+  startGame(event: any) {
+    if(this.lobby?.id) {
+      this.lobbyService.initLobbyGame(this.lobby?.id, event).subscribe()
+    }
   }
 }
 

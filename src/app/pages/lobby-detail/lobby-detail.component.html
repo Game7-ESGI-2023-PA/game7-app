@@ -1,6 +1,6 @@
 <div class="container">
   <div class="lobby-game-title">
-    <img src="{{this.lobby?.game?.imageUrl}}" class="game-image">
+    <img src="{{this.lobby?.game?.imageUrl}}" alt="" class="game-image">
     <h1>{{this.lobby?.game?.name}}</h1>
     <app-button *ngIf="canJoin()" class="join-lobby-button" label="Rejoindre" (customClick)="joinLobby()"></app-button>
   </div>
@@ -14,7 +14,18 @@
       </ng-template>
     </div>
     <div class="game-lobby-game">
-      <div class="game-renderer"></div>
+      <div *ngIf="lobby?.lobbyGamingData !== undefined; else notStarted" class="game-renderer">
+        <app-lobby-play-game [gamingData]="lobby?.lobbyGamingData"></app-lobby-play-game>
+      </div>
+      <ng-template #notStarted>
+        <div  *ngIf="isGameMaster(); else waitGameStarts">
+          <app-lobby-init-form [fields]="lobby?.game?.args" (sendInitGame)="startGame($event)"></app-lobby-init-form>
+        </div>
+        <ng-template #waitGameStarts >
+          Veuillez patientez, le jeu n'as pas été lancer par l'hôte de la partie
+        </ng-template>
+
+      </ng-template>
     </div>
   </div>
 </div>

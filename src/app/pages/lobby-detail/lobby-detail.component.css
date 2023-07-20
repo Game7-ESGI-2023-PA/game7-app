@@ -5,7 +5,7 @@
 .game-lobby-container {
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  height: 100%;
 }
 
 .lobby-game-title {
@@ -31,8 +31,10 @@
 }
 
 .game-lobby-game {
+  border-bottom: #267d1e dotted 2px;
   flex: 7;
   margin-left: 2rem;
+  height: 80%;
 }
 
 .game-renderer {

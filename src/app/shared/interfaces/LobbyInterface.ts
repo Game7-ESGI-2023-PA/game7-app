@@ -9,4 +9,17 @@ export interface LobbyInterface {
   master: UserInterface;
   status: string;
   messages?: MessageInterface[];
+  lobbyGamingData?: LobbyGamingData;
+}
+
+export interface LobbyGamingData {
+  gameInitArgs?: any;
+  gameInstructions?: Array<any>;
+  gameState?: Array<any>;
+}
+
+
+export interface SvgElement {
+  tag: string;
+  [key: string]: any;
 }

@@ -1,4 +1,5 @@
 import { LobbyInterface } from './LobbyInterface';
+import { FormField } from "./InitGameInterface";
 
 export interface GameInterface {
   id: string;
@@ -9,4 +10,5 @@ export interface GameInterface {
   minPlayers: number;
   maxPlayers: number;
   lobbies: LobbyInterface[];
+  args?: FormField[];
 }
