@@ -1,0 +1,13 @@
+<div class="container" *ngIf="form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="input-container">
+    <ng-container  *ngFor="let control of fields">
+        <label>{{ control.description }}</label>
+        <input class="input-field" *ngIf="control.type === 'int' || control.type === 'float'" [formControlName]="control.name" type="number" />
+        <input *ngIf="control.type === 'boolean'" [formControlName]="control.name" type="checkbox" />
+        <input class="input-field" *ngIf="control.type === 'string'" [formControlName]="control.name" type="text" />
+    </ng-container>
+    <app-button type="submit" label="Commencer"></app-button>
+    </div>
+  </form>
+</div>

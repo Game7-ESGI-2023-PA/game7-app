@@ -12,6 +12,9 @@ import { LobbyDetailComponent } from './lobby-detail/lobby-detail.component';
 import { ErrorComponent } from './error/error.component';
 import { LobbyInfoComponent } from "./lobby-detail/lobby-info/lobby-info.component";
 import { LobbyTableComponent } from "./game-detail/lobby-table/lobby-table.component";
+import { LobbyInitFormComponent } from './lobby-detail/lobby-init-form/lobby-init-form.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { LobbyPlayGameComponent } from './lobby-detail/lobby-play-game/lobby-play-game.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +28,10 @@ import { LobbyTableComponent } from "./game-detail/lobby-table/lobby-table.compo
     LobbyInfoComponent,
     LobbyTableComponent,
     ErrorComponent,
+    LobbyInitFormComponent,
+    LobbyPlayGameComponent,
   ],
   exports: [],
-  imports: [CommonModule, AppRoutingModule, SharedModule],
+  imports: [CommonModule, AppRoutingModule, SharedModule, ReactiveFormsModule]
 })
 export class PagesModule {}
