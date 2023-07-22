@@ -1,0 +1,5 @@
+{$APP_HOST} {
+  root * /usr/share/caddy/dist
+  try_files {path} /index.html
+  file_server
+}
