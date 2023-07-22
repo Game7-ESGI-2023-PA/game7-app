@@ -15,7 +15,12 @@
     </div>
     <div class="game-lobby-game">
       <div *ngIf="lobby?.lobbyGamingData !== undefined; else notStarted" class="game-renderer">
-        <app-lobby-play-game [gamingData]="lobby?.lobbyGamingData"></app-lobby-play-game>
+        <app-lobby-play-game
+          [currentPlayerNumber]="getMyPlayerNumber()"
+          [gamingData]="lobby?.lobbyGamingData"
+          (sendInstruction)="sendInstruction($event)"
+        >
+        </app-lobby-play-game>
       </div>
       <ng-template #notStarted>
         <div  *ngIf="isGameMaster(); else waitGameStarts">

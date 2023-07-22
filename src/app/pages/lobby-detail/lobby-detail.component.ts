@@ -80,9 +80,34 @@ export class LobbyDetailComponent implements OnInit {
     return !!this.lobby?.players.some((player) => player.id === this.currentUser?.id);
   }
 
+  getMyPlayerNumber(): number {
+    const number = this.lobby?.players
+      ?.findIndex((player) => player?.id === this.currentUser?.id)
+    if(number !== undefined) {
+      return number + 1
+    }
+    return 0
+  }
+
   startGame(event: any) {
     if(this.lobby?.id) {
       this.lobbyService.initLobbyGame(this.lobby?.id, event).subscribe()
+    }
+  }
+
+  sendInstruction(event: any) {
+    console.log(event);
+    if(this.lobby?.id) {
+      this.lobbyService.sendLobbyGameInstruction(this.lobby?.id, event).subscribe(
+        {
+          next: (res) => {
+            console.log(res);
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        }
+      );
     }
   }
 }
