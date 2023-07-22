@@ -33,9 +33,7 @@ jobs:
           target: production
           file: ./Dockerfile
           push: true
-          tags: |
-            latest
-            ${{ steps.meta.outputs.commit_hash }}
+          tags: ${{ steps.meta.outputs.commit_hash }}
           labels: ${{ steps.meta.outputs.commit_hash }}
 
 
