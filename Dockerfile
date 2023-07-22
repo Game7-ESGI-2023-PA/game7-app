@@ -1,4 +1,4 @@
-FROM node:20-alpine3.17 as builder
+FROM node:20-alpine3.17 AS builder
 
 WORKDIR /app
 
@@ -14,7 +14,7 @@ COPY . .
 RUN npm run build --prod
 
 
-FROM caddy
+FROM caddy AS production
 
 COPY --from=builder /app/dist /usr/share/caddy/dist
 COPY Caddyfile /etc/caddy/Caddyfile
