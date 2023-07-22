@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
 import { FormField } from "../../../shared/interfaces/InitGameInterface";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { LobbyService } from "../../../shared/services/lobby.service";
