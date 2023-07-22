@@ -21,7 +21,7 @@ export class NavbarComponent {
   }
 
   redirectToGameSearch() {
-    this.router.navigate(['/game-search']);
+    this.router.navigate(['']);
   }
 
   logout() {
