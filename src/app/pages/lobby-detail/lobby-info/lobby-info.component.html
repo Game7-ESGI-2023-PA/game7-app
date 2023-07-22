@@ -1,8 +1,5 @@
 <div class="lobby-info-container">
   <app-tabs>
-    <app-tab tabTitle="Chat">
-      <app-chat [currentUser]="currentUser" [messages]="lobby?.messages" (sendMethod)="sendMessage($event)"></app-chat>
-    </app-tab>
     <app-tab tabTitle="Informations">
       <h2>Game Master</h2>
       <app-user-card [user]="this.lobby?.master"></app-user-card>
@@ -13,6 +10,9 @@
       <ng-template #noResults>
         <div style="text-align: center; margin-top: 5vh">Aucun Joueur n'a rejoint le lobby.</div>
       </ng-template>
+    </app-tab>
+    <app-tab tabTitle="Chat">
+      <app-chat [currentUser]="currentUser" [messages]="lobby?.messages" (sendMethod)="sendMessage($event)"></app-chat>
     </app-tab>
   </app-tabs>
 </div>
