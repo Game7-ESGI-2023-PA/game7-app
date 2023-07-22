@@ -1,56 +1,137 @@
-import { AfterViewInit, Component, Input } from "@angular/core";
-import { LobbyGamingData, SvgElement } from "../../../shared/interfaces/LobbyInterface";
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewEncapsulation } from "@angular/core";
+import {
+  GameDisplay,
+  GameError,
+  GameInfo,
+  GameInstruction,
+  GameState,
+  LobbyGamingData
+} from "../../../shared/interfaces/LobbyInterface";
+import { DomSanitizer } from "@angular/platform-browser";
+import { LobbyService } from "../../../shared/services/lobby.service";
+
+// All this for click only first
+// TODO: list my requested actions
+// TODO: print my requested actions properly on the page
+// TODO: execute my requested action (send to api)
 
 @Component({
   selector: 'app-lobby-play-game',
   templateUrl: './lobby-play-game.component.html',
-  styleUrls: ['./lobby-play-game.component.css']
+  styleUrls: ['./lobby-play-game.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
-export class LobbyPlayGameComponent implements AfterViewInit{
+export class LobbyPlayGameComponent implements OnChanges {
 
   @Input() gamingData : LobbyGamingData | undefined = undefined;
-  @Input() currentPlayerNumber: number | undefined = 1;
+  @Input() currentPlayerNumber: number | undefined;
+  @Output() sendInstruction = new EventEmitter<any>();
 
-  private states: any[] | undefined = [];
-  private errors: any[] | undefined = [];
-  svg: SvgElement | undefined = undefined;
+  info: GameInfo[] | undefined = [];
+  errors: GameError[] | undefined = [];
+  mySvgDisplay = "<p>Loading</p>";
+  isGameOver = false;
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      console.log(this.gamingData)
-      this.setCurrentDisplay();
-      console.log(this.states);
-      console.log(this.errors);
-      this.getSVGString();
-    }, 1000)
+  constructor(private sanitizer: DomSanitizer, private lobbyService: LobbyService) {
   }
 
-  setCurrentDisplay() {
-    this.states = this.gamingData?.gameState
-      ?.filter((st) => st['displays'] !== undefined);
-    this.errors = this.gamingData?.gameState?.filter((st) => st['errors'] !== undefined);
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['gamingData'] && changes['gamingData'].currentValue) {
+      this.setCurrentGameInfo();
+      this.mySvgDisplay = this.getSVGString();
+    }
+  }
+
+  setCurrentGameInfo() {
+    this.info = this.gamingData?.gameState
+      ?.filter((info) => 'displays' in info ) as GameInfo[]
+
+    this.errors = this.gamingData?.gameState
+      ?.filter((error) => 'errors' in error) as GameError[]
+    this.isGameOver = this.info[this.info.length - 1].game_state.game_over;
+  }
+
+  getMyCurrentDisplay(): GameDisplay | undefined {
+    if(this.info) {
+      const lastInfo = this.info[this.info.length - 1];
+      return lastInfo?.displays?.find((d) => d.player === this.currentPlayerNumber)
+    }
+    return undefined;
+  }
+
+  getMyCurrentAction(): GameInstruction | undefined {
+    if(this.info) {
+      const lastInfo = this.info[this.info.length - 1];
+      return lastInfo?.requested_actions?.find((i) => i.player === this.currentPlayerNumber);
+    }
+    return undefined;
+  }
+
+  generateSvgString(gameData: GameDisplay): string {
+    let svgString = `<svg width="${gameData.width}" height="${gameData.height}" xmlns="http://www.w3.org/2000/svg">`;
+
+    let styleContent = '';
+    // Adding content to the SVG
+    for (const item of gameData.content) {
+      if (item.tag === "style") {
+        styleContent = item.content;
+        svgString += `<style>${styleContent}</style>`;
+      } else {
+        svgString += this.createElementString(item);
+      }
+    }
+    svgString += "</svg>";
+    return svgString;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  createElementString(item: any): string {
+    if (!item.tag) {
+      return ''; // Skip invalid items without a tag
+    }
+
+    let elementString = `<${item.tag}`;
+
+    // Add attributes to the element
+    for (const key in item) {
+      if (key !== "tag" && key in item) {
+        elementString += ` ${key}="${item[key]}"`;
+      }
+    }
+
+    elementString += " />";
+    return elementString;
   }
 
   getSVGString(): string {
-    if(this.states) {
-      const current = this.states.pop();
-      const toDisplay  = current['displays'].find((disp: any) => disp['player'] === this.currentPlayerNumber)
-      console.log(toDisplay);
-      return`<svg width="${toDisplay['width']}" height="${toDisplay['height']}">`;
-
-      // content.forEach((item) => {
-      //   if (item.tag === 'rect') {
-      //     svgString += `<rect x="${item.x}" y="${item.y}" width="${item.width}" height="${item.height}" fill="${item.fill}" />`;
-      //   } else if (item.tag === 'text') {
-      //     svgString += `<text x="${item.x}" y="${item.y}" fill="${item.fill}">${item.content}</text>`;
-      //   }
-      // });
-      //
-      // svgString += '</svg>';
-      // return svgString;
+    this.setCurrentGameInfo();
+    const display = this.getMyCurrentDisplay();
+    if(display) {
+      return <string>this.sanitizer.bypassSecurityTrustHtml(this.generateSvgString(display));
     }
     return "";
   }
 
-
+  onDivClick(event: MouseEvent) {
+    if(this.isGameOver) {
+      return;
+    }
+    const action = this.getMyCurrentAction();
+    if(action?.type === "CLICK") {
+      const target = event.target as HTMLElement;
+      const rect = target.getBoundingClientRect();
+      const offsetX = event.clientX - rect.left;
+      const offsetY = event.clientY - rect.top;
+      console.log('Clicked at X:', offsetX, 'Y:', offsetY);
+      this.sendInstruction.emit( {
+        actions: [
+          {
+            player: this.currentPlayerNumber,
+            x: offsetX,
+            y: offsetY
+          }
+        ]
+      });
+    }
+  }
 }
