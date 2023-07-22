@@ -1,7 +1,7 @@
-import {UserInterface} from "./UserInterface";
 
-export interface Message {
-  sender: UserInterface;
+export interface MessageInterface {
+  senderId: string;
+  senderName: string;
   date: string;
   content: string;
 }

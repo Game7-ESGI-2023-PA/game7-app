@@ -1,9 +1,23 @@
 .container {
   display: flex;
   flex-direction: row;
-  margin: 15px;
-  max-width: 100vh;
   height: 100vh; /* If you want it to take up the whole viewport height */
+}
+
+.image-side {
+  flex: 3;
+  height: 100vh;
+}
+
+.image-side img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /* This will make sure the image scales properly */
+}
+
+.form-side {
+  flex: 1;
+  padding-left: 10vh;
 }
 
 .login-legend {
@@ -11,27 +25,6 @@
   color: #267d1e;
   font-weight: bold;
   font-size: 3em;
-}
-
-.image-side,
-.form-side {
-  flex: 1;
-  padding: 10px;
-  height: 100vh;
-}
-
-.image-side img {
-  max-width: 100%;
-  height: 100%;
-  object-fit: cover; /* This will make sure the image scales properly */
-}
-
-.form-side {
-  padding-left: 10vh;
-}
-
-.form-side form {
-  /* Your form styling goes here */
 }
 
 .input-container {
@@ -49,7 +42,7 @@
   background-color: #000000;
   color: #e7e7e7;
   border-style: solid;
-  border-radius: 15px;
+  border-radius: 0.5rem;
   font-size: 15px;
   box-shadow: -2px 9px 10px rgba(5, 108, 27, 0.74);
 }
@@ -60,4 +53,9 @@
 
 .form-buttons {
   margin-top: 20px;
+}
+
+.error-message {
+  padding-top: 1rem;
+  color: red;
 }

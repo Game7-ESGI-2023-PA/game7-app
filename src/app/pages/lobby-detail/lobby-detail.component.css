@@ -1,0 +1,42 @@
+.container {
+  padding-inline: 15rem;
+}
+
+.game-lobby-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.lobby-game-title {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  margin-block: 1rem;
+  align-items: center;
+}
+
+.game-image {
+  width: 3em;
+  height: 3em;
+  background: black;
+  border-radius: 0.5rem;
+  align-self: center;
+  transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+.game-lobby-detail {
+  flex: 3;
+}
+
+.game-lobby-game {
+  flex: 7;
+  margin-left: 2rem;
+  height: 80%;
+}
+
+.game-renderer {
+  width: auto;
+  height: 1000px;
+}

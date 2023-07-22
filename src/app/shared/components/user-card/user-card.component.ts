@@ -21,9 +21,8 @@ export class UserCardComponent {
   }
 
   goToUserProfile() {
-    console.log(this.user);
     if (this.user?.id) {
-      this.router.navigate(['user-profile', this.user?.id]);
+      this.router.navigate(['user-profile', this.user?.id]).then();
     }
   }
 

@@ -1,58 +1,17 @@
-:root {
-  --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  --msger-bg: #fff;
-  --border: 2px solid #ddd;
-  --left-msg-bg: #ececec;
-  --right-msg-bg: #579ffb;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-image: var(--body-bg);
-  font-family: Helvetica, sans-serif;
-}
-
-.msger {
+.chat-box {
+  margin-top: 3rem;
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
   width: 100%;
-  max-width: 867px;
-  margin: 25px 10px;
-  height: calc(100% - 50px);
-  border: var(--border);
-  border-radius: 5px;
-  background: var(--msger-bg);
-  box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
+  height: 800px;
+  border: #267d1e solid 1px;
+  border-radius: 0.5rem;
 }
 
-.msger-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: var(--border);
-  background: #eee;
-  color: #666;
-}
-
-.msger-chat {
+.chat-messages {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
   padding: 10px;
 }
 
@@ -82,7 +41,7 @@ body {
   width: 50px;
   height: 50px;
   margin-right: 10px;
-  background: #ddd;
+  background-image: url('/assets/placeholders/no_player_image.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -93,7 +52,7 @@ body {
   max-width: 450px;
   padding: 15px;
   border-radius: 15px;
-  background: var(--left-msg-bg);
+  background: #267d1e;
 }
 
 .msg-info {
@@ -114,16 +73,12 @@ body {
 
 .left-msg .msg-bubble {
   border-bottom-left-radius: 0;
+  background: transparent ;
+  border: #267d1e solid 1px;
 }
 
 .right-msg {
   flex-direction: row-reverse;
-}
-
-.right-msg .msg-bubble {
-  background: var(--right-msg-bg);
-  color: #fff;
-  border-bottom-right-radius: 0;
 }
 
 .right-msg .msg-img {
@@ -132,9 +87,9 @@ body {
 
 .msger-inputarea {
   display: flex;
+  background-color: #267d1e;
+
   padding: 10px;
-  border-top: var(--border);
-  background: #eee;
 }
 
 .msger-inputarea * {

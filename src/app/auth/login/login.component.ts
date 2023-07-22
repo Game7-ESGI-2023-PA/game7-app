@@ -9,6 +9,11 @@ import { AuthService } from '../../shared/services/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+
+  // TODO: server error redirect to error page
+  // TODO: formbuilder message for tips
+
+  errorMessage = "";
   form: FormGroup = this.fb.group({
     email: ['', [Validators.email, Validators.required]],
     password: ['', Validators.required],
@@ -26,10 +31,15 @@ export class LoginComponent {
         })
         .subscribe({
           next: () => {
-            this.router.navigate(['/']).then(); // TODO redirect to home
+            this.router.navigate(['/game-search']).then(); // TODO redirect to home
           },
           error: err => {
-            console.log(err); // TODO error management
+            if (err.error.code === 401) {
+              this.errorMessage = "Veuillez vérifier vos identifiants."
+            }
+            else {
+              this.router.navigate(['server-error']).then();
+            }
           },
         });
     }

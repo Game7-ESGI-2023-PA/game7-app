@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.title {
+  border: #267d1e solid 1px;
+  padding-inline: 1rem;
+  cursor: default;
+  border-radius: 0.5rem;
+}
+
+.title-active {
+  border: #267d1e solid 1px;
+  padding-inline: 1rem;
+  cursor: default;
+  border-radius: 0.5rem;
+  box-shadow: 0px 3px 8px #267d1e;;
+}

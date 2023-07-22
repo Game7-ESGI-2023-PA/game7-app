@@ -1,6 +1,7 @@
 .header-container {
-  width: 100%;
-  box-shadow: 0 4px 2px -2px green;
+  padding-inline: 15rem;
+  max-width: 100%;
+  border-bottom: #267d1e 1px solid;
   display: flex;
   justify-content: space-between;
 }
@@ -12,16 +13,20 @@
 }
 
 .links {
-  padding: 20px;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 
 .nav-link {
   margin-right: 10px;
   color: #1ac718;
   background-color: black;
-  box-shadow: 0 4px 2px -2px green;
+  transition: 0.2s;
   padding-left: 30px;
   padding-right: 30px;
+  height: 100%;
 }
 
 .nav-link:hover {

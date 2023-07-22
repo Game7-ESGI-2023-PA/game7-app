@@ -5,6 +5,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { FriendRequestInterface, Status } from 'src/app/shared/interfaces/FriendshipInterface';
 import { FriendsService } from 'src/app/shared/services/friends.service';
 import { combineLatest } from 'rxjs';
+import { ButtonColor } from "../../shared/components/button/button.component";
 
 @Component({
   selector: 'app-user-profile',
@@ -35,7 +36,6 @@ export class UserProfileComponent implements OnInit {
         friends: this.friendsService.myFriends(),
         me: this.userService.me(),
       }).subscribe(res => {
-        console.log(res);
         (this.sentFriendRequests = res.sentRequest),
           (this.receivedFriendRequests = res.receivedRequest),
           (this.myFriends = res.friends.friends);
@@ -101,6 +101,9 @@ export class UserProfileComponent implements OnInit {
       }
     }
   }
+
+  protected readonly undefined = undefined;
+  protected readonly ButtonColor = ButtonColor;
 }
 
 enum FriendShipStatus {

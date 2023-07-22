@@ -1,57 +1,96 @@
 <div class="page-container">
-  <div class="profile-container">
-    <div class="player-information-container">
-      <div class="img-pseudo-container">
-        <img class="user-img" src="assets/placeholders/no_player_image.jpg" />
-        <h1 class="user-pseudo">{{ user?.nickname }}</h1>
+  <div class="left-info">
+    <img class="user-img" src="assets/placeholders/no_player_image.jpg"  alt=""/>
+    <div class="user-info">
+      <div class="username">
+        <span style="color: #267d1e">Nom d'utilisateur</span>
+        <div>{{ user?.nickname }}</div>
       </div>
-      <div class="text-information">
-        <div>
-          <h1>Informations</h1>
-          <div *ngIf="!isCurrentUser">
-            <div *ngIf="friendShipStatus === 0">
-              <button mat-raised-button (click)="askForFriend()">Ask for friend</button>
-            </div>
-            <div *ngIf="friendShipStatus === 1">Already friends</div>
-            <div *ngIf="friendShipStatus === 2">
-              Request received : click here to accept
-              <button mat-raised-button (click)="acceptRequest()">Accept</button>
-              <button mat-raised-button color="warn" (click)="denieRequest()">Denie</button>
-            </div>
-            <div *ngIf="friendShipStatus === 3">Request Sent</div>
+      <div class="username">
+        <div style="color: #267d1e">Email: </div>
+        <div>{{ user?.email }}</div>
+      </div>
+
+      <div *ngIf="!isCurrentUser">
+        <div style="text-align: center;" *ngIf="friendShipStatus === 0">
+          <div style="margin-block: 2rem">
+            <app-button label="Demander en amis" (customClick)="askForFriend()"></app-button>
           </div>
         </div>
+        <div style="text-align: center" *ngIf="friendShipStatus === 1">
+          <span class="already-friend">Vous êtes amis</span>
+        </div>
+        <div style="text-align: center" *ngIf="friendShipStatus === 2">
+          <div style="margin-block: 2rem">
+            Cet utilisateur vous a demander en amis
+            <div style="display: flex; justify-content: space-around; margin-top: 1rem">
+              <app-button label="Accepter" (customClick)="acceptRequest()"></app-button>
+              <app-button label="Refuser" [color]="ButtonColor.ALERT" (customClick)="denieRequest()"></app-button>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center" *ngIf="friendShipStatus === 3">
+          <span class="request-sent">En attente d'une réponse</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <ul class="information-list">
-          <li>Email : {{ user?.email }}</li>
-          <li>Pseudo : {{ user?.nickname }}</li>
-        </ul>
-      </div>
+  <div class="central-info">
+    <div *ngIf="isCurrentUser || friendShipStatus === 1; else visibleProfile">
+      profil visible
     </div>
+    <ng-template #visibleProfile>
+      profil non visible
+    </ng-template>
   </div>
-  <div *ngIf="isCurrentUser">
-    <div class="carrouselle-container">
-      <div class="carrouselle-title-container">
-        <h1>liste d'ami</h1>
-      </div>
-      <div class="card-container">
-        <div *ngFor="let friend of myFriends | slice : 0 : 5; let i = index" class="card-div">
-          <app-user-card [user]="friend"></app-user-card>
-        </div>
-      </div>
+  <div class="right-info">
+    <div *ngIf="isCurrentUser; else hiddenRight">
+      profil visible
     </div>
-    <div class="carrouselle-container">
-      <div class="carrouselle-title-container">
-        <h1>Demande d'ami</h1>
-      </div>
-      <div class="card-container">
-        <div
-          *ngFor="let fr of receivedFriendRequests | slice : 0 : 5; let i = index"
-          class="card-div"
-        >
-          <app-user-card [user]="fr.from"></app-user-card>
-        </div>
-      </div>
-    </div>
+    <ng-template #hiddenRight>
+      profil non visible
+    </ng-template>
   </div>
+<!--  <div class="profile-container">-->
+<!--    <div class="player-information-container">-->
+
+<!--      <div class="text-information">-->
+<!--        <div>-->
+<!--          <h1>Informations</h1>-->
+<!--
+<!--        </div>-->
+
+<!--        <ul class="information-list">-->
+<!--          <li>Email : {{ user?.email }}</li>-->
+<!--          <li>Pseudo : {{ user?.nickname }}</li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div *ngIf="isCurrentUser">-->
+<!--    <div class="carrouselle-container">-->
+<!--      <div class="carrouselle-title-container">-->
+<!--        <h1>liste d'ami</h1>-->
+<!--      </div>-->
+<!--      <div class="card-container">-->
+<!--        <div *ngFor="let friend of myFriends | slice : 0 : 5; let i = index" class="card-div">-->
+<!--          <app-user-card [user]="friend"></app-user-card>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="carrouselle-container">-->
+<!--      <div class="carrouselle-title-container">-->
+<!--        <h1>Demande d'ami</h1>-->
+<!--      </div>-->
+<!--      <div class="card-container">-->
+<!--        <div-->
+<!--          *ngFor="let fr of receivedFriendRequests | slice : 0 : 5; let i = index"-->
+<!--          class="card-div"-->
+<!--        >-->
+<!--          <app-user-card [user]="fr.from"></app-user-card>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 </div>

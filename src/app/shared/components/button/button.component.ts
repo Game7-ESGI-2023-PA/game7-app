@@ -21,4 +21,5 @@ export class ButtonComponent {
 export enum ButtonColor {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
+  ALERT = 'alert',
 }

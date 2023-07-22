@@ -1,21 +1,23 @@
-<img class="game-bg-wall" src="{{ game?.bgUrl }}" />
-<div class="game-container">
-  <div class="game-info">
-    <img class="game-icon" src="{{ game?.imageUrl }}" />
-    <div class="game-title">
-      <h1>{{ game?.name }}</h1>
-      <p>Joueurs min. {{ game?.minPlayers }} / max. {{ game?.maxPlayers }}</p>
+<div class="game-detail-page">
+  <img class="game-bg-wall" src="{{ game?.bgUrl }}" />
+  <div class="game-container">
+    <div class="game-info">
+      <img class="game-icon" src="{{ game?.imageUrl }}" />
+      <div class="game-title">
+        <h1>{{ game?.name }}</h1>
+      </div>
+    </div>
+    <div class="create-lobby-button">
+      <app-button label="Créer un lobby" (customClick)="createLobby()"> </app-button>
     </div>
   </div>
-  <div class="create-lobby-button">
-    <app-button label="Créer un lobby" (customClick)="createLobby()"> </app-button>
-  </div>
-</div>
 
-<p class="game-description">{{ game?.description }}</p>
-<div class="lobbies-list">
-  <app-lobby-table
-    [lobbies]="game?.lobbies ? game?.lobbies : []"
-    [maxPlayers]="game?.maxPlayers"
-  ></app-lobby-table>
+  <p>Joueurs min. {{ game?.minPlayers }} / max. {{ game?.maxPlayers }}</p>
+  <p class="game-description">{{ game?.description }}</p>
+  <div class="lobbies-list">
+    <app-lobby-table
+      [lobbies]="game?.lobbies ? game?.lobbies : []"
+      [maxPlayers]="game?.maxPlayers"
+    ></app-lobby-table>
+  </div>
 </div>

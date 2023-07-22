@@ -1,17 +1,18 @@
 .mini-card {
   display: flex;
   flex-direction: row;
-  margin: 20px;
   max-width: 40em;
-  box-shadow: 0 5px 5px rgba(26, 199, 24, 100), 0 5px 5px rgba(26, 199, 24, 100);
-  border-radius: 20px;
+  /*box-shadow: 0 5px 5px rgba(26, 199, 24, 100), 0 5px 5px rgba(26, 199, 24, 100);*/
+  border-radius: 0.5rem;
+  border: #267d1e 1px solid;
   padding-right: 1em;
   padding-bottom: 1em;
+  transition: 0.2s;
   gap: 1em;
 }
 
 .mini-card:hover {
-  box-shadow: 0 8px 8px rgba(26, 199, 24, 100), 0 8px 8px rgba(26, 199, 24, 100);
+  box-shadow: 0 3px 3px rgba(26, 199, 24, 100);
 }
 
 .input-container {
@@ -33,7 +34,7 @@
 }
 
 .avatar {
-  border-radius: 50%;
+  border-radius: 0.5rem;
   width: 50px;
   height: 50px;
   margin-top: 10px;

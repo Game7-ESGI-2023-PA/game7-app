@@ -5,9 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { ButtonComponent } from './components/button/button.component';
-import { LobbyTableComponent } from './components/lobby-table/lobby-table.component';
 import { ChatComponent } from './components/chat/chat.component';
-
+import { TabsComponent } from './components/tabs/tabs.component';
+import { TabComponent } from './components/tabs/tab/tab.component';
 
 @NgModule({
   declarations: [
@@ -15,17 +15,19 @@ import { ChatComponent } from './components/chat/chat.component';
     UserCardComponent,
     GameCardComponent,
     ButtonComponent,
-    LobbyTableComponent,
     ChatComponent,
+    TabsComponent,
+    TabComponent,
   ],
-    exports: [
-        UserCardComponent,
-        GameCardComponent,
-        NavbarComponent,
-        ButtonComponent,
-        LobbyTableComponent,
-        ChatComponent,
-    ],
+  exports: [
+    UserCardComponent,
+    GameCardComponent,
+    NavbarComponent,
+    ButtonComponent,
+    ChatComponent,
+    TabsComponent,
+    TabComponent
+  ],
   imports: [CommonModule, HttpClientModule],
 })
 export class SharedModule {}

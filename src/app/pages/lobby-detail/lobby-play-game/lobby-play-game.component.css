@@ -1,0 +1,20 @@
+.game-svg-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40%;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.game {
+  border: #267d1e solid 2px ;
+}
+
+.game-logger {
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  border: green solid 2px;
+  height: 500px;
+  overflow-y: scroll;
+}
