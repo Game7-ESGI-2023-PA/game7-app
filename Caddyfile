@@ -1,5 +1,5 @@
 {$APP_HOST} {
-  root * /usr/share/caddy/dist
+  root * /usr/share/caddy/dist/game7-app
   try_files {path} /index.html
   file_server
 }

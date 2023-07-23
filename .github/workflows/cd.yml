@@ -45,4 +45,4 @@ jobs:
       - name: Redeploy container
         run: |
           ssh -i private_key.pem -o StrictHostKeyChecking=no ${{ vars.SERVER_USER }}@${{ vars.SERVER_PUBLIC_IP }} "\
-            sudo docker run shanaziz/game7-app-angular:latest -p 80:80 -p 443:443 --env APP_HOST=app.game7app.com"
+            sudo docker run -p 80:80 -p 443:443 -d --env APP_HOST=app.game7app.com shanaziz/game7-app-angular:main"
