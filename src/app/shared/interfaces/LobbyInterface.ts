@@ -8,6 +8,8 @@ export interface LobbyInterface {
   players: UserInterface[];
   master: UserInterface;
   status: string;
+  createdAt: string;
+  updatedAt: string;
   messages?: MessageInterface[];
   lobbyGamingData?: LobbyGamingData;
 }
