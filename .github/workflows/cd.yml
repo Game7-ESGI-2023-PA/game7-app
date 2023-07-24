@@ -33,8 +33,9 @@ jobs:
           target: production
           file: ./Dockerfile
           push: true
-          tags: latest
-          labels: ${{ steps.meta.outputs.commit_hash }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
 
       - name: Setup SSH key
         run: |
