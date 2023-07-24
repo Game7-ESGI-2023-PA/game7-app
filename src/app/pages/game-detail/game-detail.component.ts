@@ -11,12 +11,13 @@ import { LobbyService } from 'src/app/shared/services/lobby.service';
 })
 export class GameDetailComponent implements OnInit {
   game: GameInterface | undefined = undefined;
+  isPublic: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private gameService: GameService,
-    private lobbyService: LobbyService
+    private lobbyService: LobbyService,
   ) {}
 
   ngOnInit(): void {
@@ -41,10 +42,17 @@ export class GameDetailComponent implements OnInit {
     });
   }
 
+  toggleCheckbox() {
+    this.isPublic = !this.isPublic;
+  }
+
   createLobby() {
     if (this.game?.id) {
-      this.lobbyService.create(this.game?.id).subscribe(res => {
-        this.game?.lobbies.push(res);
+      this.lobbyService.create(this.game?.id, this.isPublic).subscribe(res => {
+        if(this.isPublic) {
+          this.game?.lobbies.push(res);
+          this.isPublic = false;
+        }
       });
     }
   }

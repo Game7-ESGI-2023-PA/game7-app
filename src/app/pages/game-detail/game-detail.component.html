@@ -8,6 +8,10 @@
       </div>
     </div>
     <div class="create-lobby-button">
+      <label>
+        <input type="checkbox" (change)="toggleCheckbox()" [checked]="isPublic" />
+        Publique
+      </label>
       <app-button label="Créer un lobby" (customClick)="createLobby()"> </app-button>
     </div>
   </div>
