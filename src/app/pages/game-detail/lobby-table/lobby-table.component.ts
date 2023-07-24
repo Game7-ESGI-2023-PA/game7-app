@@ -17,4 +17,9 @@ export class LobbyTableComponent {
   redirectToLobby(id: string) {
     this.router.navigate(['lobby-detail', id]).then();
   }
+
+  getDateString(data: string) {
+    const date = new Date(data);
+    return date.toLocaleString('fr-FR');
+  }
 }

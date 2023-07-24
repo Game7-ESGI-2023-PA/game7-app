@@ -8,12 +8,18 @@
       </div>
     </div>
     <div class="create-lobby-button">
+      <label>
+        <input type="checkbox" (change)="toggleCheckbox()" [checked]="isPublic" />
+        Publique
+      </label>
       <app-button label="Créer un lobby" (customClick)="createLobby()"> </app-button>
     </div>
   </div>
 
   <p>Joueurs min. {{ game?.minPlayers }} / max. {{ game?.maxPlayers }}</p>
   <p class="game-description">{{ game?.description }}</p>
+  <br>
+  <h2>Salles publiques</h2>
   <div class="lobbies-list">
     <app-lobby-table
       [lobbies]="game?.lobbies ? game?.lobbies : []"

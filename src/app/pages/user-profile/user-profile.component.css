@@ -62,3 +62,13 @@
   border-radius: 0.5rem;
   box-shadow: 0 3px 8px #267d1e;
 }
+
+.not-visible {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: #267d1e solid 3px;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 100%;
+}

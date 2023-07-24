@@ -10,14 +10,19 @@ import { environment } from "../../../environments/environment";
 export class LobbyService {
   constructor(private http: HttpClient) {}
 
-  create(gameId: string): Observable<LobbyInterface> {
+  create(gameId: string, isPublic: boolean): Observable<LobbyInterface> {
     return this.http.post<LobbyInterface>('/game_lobbies', {
       game: `/api/games/${gameId}`,
+      isPublic: isPublic,
     });
   }
 
   findById(lobbyId: string): Observable<LobbyInterface> {
-    return this.http.get<LobbyInterface>(`/game_lobbies/${lobbyId}`)
+    return this.http.get<LobbyInterface>(`/game_lobbies/${lobbyId}`);
+  }
+
+  findByUserId(userId: string): Observable<LobbyInterface[]> {
+    return this.http.get<LobbyInterface[]>(`/game_lobbies/user/${userId}`);
   }
 
   joinLobby(lobbyId: string): Observable<LobbyInterface> {

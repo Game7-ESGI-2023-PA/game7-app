@@ -1,15 +1,17 @@
 <ul class="responsive-table">
   <li class="table-header">
-    <div class="col col-1">Leader</div>
-    <div class="col col-2">Joueurs</div>
-    <div class="col col-3">Status</div>
-    <div class="col col-4"></div>
+    <div class="col col-1">Hôtes</div>
+    <div class="col col-2">Créé le</div>
+    <div class="col col-3">Joueurs</div>
+    <div class="col col-4">Status</div>
+    <div class="col col-5"></div>
   </li>
-  <li *ngFor="let lobby of lobbies" class="table-row">
+  <li *ngFor="let lobby of lobbies?.reverse()" class="table-row">
     <div class="col col-1">{{ lobby.master.nickname }}</div>
-    <div class="col col-2">{{ lobby.players.length }}/{{ maxPlayers }}</div>
-    <div class="col col-3">{{ lobby.status }}</div>
-    <div class="col col-4">
+    <div class="col col-2">{{ getDateString(lobby.createdAt) }}</div>
+    <div class="col col-3">{{ lobby.players.length }}/{{ maxPlayers }}</div>
+    <div class="col col-4">{{ lobby.status }}</div>
+    <div class="col col-5">
       <app-button label="Voir" (customClick)="redirectToLobby(lobby.id)"></app-button>
     </div>
   </li>

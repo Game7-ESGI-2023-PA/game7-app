@@ -34,3 +34,9 @@
 .lobbies-list {
   padding-bottom: 10px;
 }
+
+.create-lobby-button {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+}
