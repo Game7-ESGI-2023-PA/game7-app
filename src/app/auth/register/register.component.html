@@ -16,6 +16,9 @@
             required
           />
         </div>
+        <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" class="error-message">
+          Entrez une adresse email
+        </div>
         <div class="input-container">
           <label>Entrer votre pseudonyme</label>
           <input
@@ -25,6 +28,9 @@
             formControlName="nickname"
             required
           />
+        </div>
+        <div *ngIf="form.controls['nickname'].invalid && (form.controls['nickname'].dirty || form.controls['nickname'].touched)" class="error-message">
+          Entrez une pseudonyme
         </div>
         <div class="input-container">
           <label>Entrer votre mot de passe</label>
@@ -36,6 +42,9 @@
             required
           />
         </div>
+        <div *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)" class="error-message">
+          Entrez un mot de passe
+        </div>
         <div class="input-container">
           <label>Confirmer votre mot de passe</label>
           <input
@@ -45,6 +54,9 @@
             formControlName="confirmPassword"
             required
           />
+        </div>
+        <div *ngIf="form.controls['confirmPassword'].invalid && (form.controls['confirmPassword'].dirty || form.controls['confirmPassword'].touched)" class="error-message">
+          Les mot de passes doivent être identique
         </div>
         <div class="form-buttons">
           <app-button
