@@ -49,9 +49,8 @@ export class GameDetailComponent implements OnInit {
   createLobby() {
     if (this.game?.id) {
       this.lobbyService.create(this.game?.id, this.isPublic).subscribe(res => {
-        if(this.isPublic) {
-          this.game?.lobbies.push(res);
-          this.isPublic = false;
+        if(res && res.id) {
+          this.router.navigate(['lobby-detail', res.id]).then()
         }
       });
     }

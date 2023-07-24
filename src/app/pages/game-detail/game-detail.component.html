@@ -18,6 +18,8 @@
 
   <p>Joueurs min. {{ game?.minPlayers }} / max. {{ game?.maxPlayers }}</p>
   <p class="game-description">{{ game?.description }}</p>
+  <br>
+  <h2>Salles publiques</h2>
   <div class="lobbies-list">
     <app-lobby-table
       [lobbies]="game?.lobbies ? game?.lobbies : []"
