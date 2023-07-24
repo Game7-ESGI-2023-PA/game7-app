@@ -66,7 +66,17 @@ export class RegisterComponent implements OnInit {
               this.router.navigate(['/login']).then();
             },
             error: error => {
-              this.errorMessage = error.error.message;
+              if (error.status === 422) {
+                console.log(error);
+                this.errorMessage = error.error.detail;
+              }
+              else if(error.error.code === 500) {
+                this.router.navigate(['server-error']).then();
+              }
+              else {
+                console.log(error);
+                this.errorMessage = "Une erreur inconnue est survenue, veuillez réessayer";
+              }
             },
           });
       }

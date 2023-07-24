@@ -22,6 +22,7 @@ export class LoginComponent {
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
 
   login() {
+    this.errorMessage = "";
     const val = this.form.value;
     if (val.email && val.password && !this.form.invalid) {
       this.authService
@@ -31,14 +32,17 @@ export class LoginComponent {
         })
         .subscribe({
           next: () => {
-            this.router.navigate(['/game-search']).then(); // TODO redirect to home
+            this.router.navigate(['/']).then(); // TODO redirect to home
           },
           error: err => {
             if (err.error.code === 401) {
               this.errorMessage = "Veuillez vérifier vos identifiants."
             }
-            else {
+            else if(err.error.code === 500) {
               this.router.navigate(['server-error']).then();
+            }
+            else {
+              this.errorMessage = "Une erreur inconnue est survenue, veuillez réessayer";
             }
           },
         });
