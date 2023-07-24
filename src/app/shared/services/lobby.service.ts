@@ -18,7 +18,11 @@ export class LobbyService {
   }
 
   findById(lobbyId: string): Observable<LobbyInterface> {
-    return this.http.get<LobbyInterface>(`/game_lobbies/${lobbyId}`)
+    return this.http.get<LobbyInterface>(`/game_lobbies/${lobbyId}`);
+  }
+
+  findByUserId(userId: string): Observable<LobbyInterface[]> {
+    return this.http.get<LobbyInterface[]>(`/game_lobbies/user/${userId}`);
   }
 
   joinLobby(lobbyId: string): Observable<LobbyInterface> {

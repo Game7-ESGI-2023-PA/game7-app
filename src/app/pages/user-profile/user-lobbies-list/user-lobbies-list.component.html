@@ -1,0 +1,23 @@
+<ul class="responsive-table">
+  <li class="table-header">
+    <div class="col col-1">Jeu</div>
+    <div class="col col-2">Hôtes</div>
+    <div class="col col-3">Créé le</div>
+    <div class="col col-4">Joueurs</div>
+    <div class="col col-5">Status</div>
+    <div class="col col-6"></div>
+  </li>
+  <li *ngFor="let lobby of lobbies?.reverse()" class="table-row">
+    <div class="col col-1">
+      <img src="{{ lobby.game.imageUrl }}">
+      {{ lobby.game.name }}
+    </div>
+    <div class="col col-2">{{ lobby.master.nickname }}</div>
+    <div class="col col-3">{{ getDateString(lobby.createdAt) }}</div>
+    <div class="col col-4">{{ lobby.players.length }}/{{ lobby.game.maxPlayers }}</div>
+    <div class="col col-5">{{ lobby.status }}</div>
+    <div class="col col-6">
+      <app-button label="Voir" (customClick)="redirectToLobby(lobby.id)"></app-button>
+    </div>
+  </li>
+</ul>

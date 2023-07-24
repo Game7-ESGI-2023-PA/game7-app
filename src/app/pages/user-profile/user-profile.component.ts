@@ -13,6 +13,7 @@ import { ButtonColor } from "../../shared/components/button/button.component";
   styleUrls: ['./user-profile.component.css'],
 })
 export class UserProfileComponent implements OnInit {
+  currentId: string | undefined = undefined;
   user: UserInterface | undefined = undefined;
   myFriends: UserInterface[] | undefined = undefined;
   sentFriendRequests: FriendRequestInterface[] | undefined = undefined;
@@ -45,12 +46,14 @@ export class UserProfileComponent implements OnInit {
         if (userId === null || userId === res.me.id) {
           this.user = res.me;
           this.isCurrentUser = true;
+          this.currentId = res.me.id;
         }
 
         // If not my profile, set friendship status and user info from Id
         if (!this.isCurrentUser && userId) {
           this.userService.findById(userId).subscribe(user => {
             this.user = user;
+            this.currentId = user.id;
           });
           if (this.myFriends?.some(friend => friend.id === userId)) {
             this.friendShipStatus = FriendShipStatus.AlreadyFriends;

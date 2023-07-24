@@ -11,7 +11,7 @@ import { LobbyService } from 'src/app/shared/services/lobby.service';
 })
 export class GameDetailComponent implements OnInit {
   game: GameInterface | undefined = undefined;
-  isPublic: boolean = false;
+  isPublic = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
