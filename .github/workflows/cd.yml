@@ -33,9 +33,10 @@ jobs:
           target: production
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-
+          tags: |
+            latest
+            ${{ steps.meta.outputs.commit_hash }}
+          labels: ${{ steps.meta.outputs.commit_hash }}
 
       - name: Setup SSH key
         run: |
@@ -45,4 +46,4 @@ jobs:
       - name: Redeploy container
         run: |
           ssh -i private_key.pem -o StrictHostKeyChecking=no ${{ vars.SERVER_USER }}@${{ vars.SERVER_PUBLIC_IP }} "\
-            sudo docker run -p 80:80 -p 443:443 -d --env APP_HOST=app.game7app.com shanaziz/game7-app-angular:main"
+            sudo docker run -p 80:80 -p 443:443 -d --env APP_HOST=app.game7app.com shanaziz/game7-app-angular:${{ steps.meta.outputs.commit_hash }}"
