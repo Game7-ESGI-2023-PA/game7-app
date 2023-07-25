@@ -48,7 +48,13 @@ export interface GameInstruction {
 }
 
 export interface GameError {
-  errors: Array<InitErrorType>;
+  errors: Array<InitErrorType | GameErrorType>;
+}
+
+export interface GameErrorType {
+  type: string;
+  player: string;
+  requested_action: GameInstruction;
 }
 
 export interface InitErrorType {

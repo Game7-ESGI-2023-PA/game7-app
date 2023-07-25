@@ -5,7 +5,7 @@
     <app-button *ngIf="canJoin()" class="join-lobby-button" label="Rejoindre" (customClick)="joinLobby()"></app-button>
   </div>
   <div class="game-lobby-container">
-    <div  class="game-lobby-detail">
+    <div class="game-lobby-detail">
       <app-lobby-info *ngIf="isJoined(); else elseBlock" [lobby]="lobby" [currentUser]="currentUser"></app-lobby-info>
       <ng-template #elseBlock>
         <div>
@@ -13,8 +13,8 @@
         </div>
       </ng-template>
     </div>
-    <div class="game-lobby-game">
-      <div *ngIf="lobby?.lobbyGamingData !== undefined; else notStarted" class="game-renderer">
+    <div *ngIf="isJoined()" class="game-lobby-game">
+      <div *ngIf="lobby?.status !== 'pending'; else notStarted" class="game-renderer">
         <app-lobby-play-game
           [currentPlayerNumber]="getMyPlayerNumber()"
           [gamingData]="lobby?.lobbyGamingData"
@@ -23,7 +23,7 @@
         </app-lobby-play-game>
       </div>
       <ng-template #notStarted>
-        <div  *ngIf="isGameMaster(); else waitGameStarts">
+        <div *ngIf="isGameMaster(); else waitGameStarts">
           <app-lobby-init-form [fields]="lobby?.game?.args" (sendInitGame)="startGame($event)"></app-lobby-init-form>
         </div>
         <ng-template #waitGameStarts >

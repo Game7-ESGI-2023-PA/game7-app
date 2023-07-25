@@ -3,4 +3,5 @@ export interface UserInterface {
   nickname: string;
   email: string;
   photoUrl?: string | undefined;
+  xp?: string;
 }

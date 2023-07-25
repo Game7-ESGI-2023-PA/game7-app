@@ -9,3 +9,9 @@
 .join-lobby-button {
   align-self: center;
 }
+
+.game-player-tag {
+  color: #267d1e;
+  padding: 0.2rem;
+  font-weight: bold;
+}

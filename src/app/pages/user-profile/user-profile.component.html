@@ -10,6 +10,10 @@
         <div style="color: #267d1e">Email: </div>
         <div>{{ user?.email }}</div>
       </div>
+      <div class="username">
+        <div style="color: #267d1e;">Experience: </div>
+        <div>{{ user?.xp ? user?.xp : 0 }} XP </div>
+      </div>
 
       <div *ngIf="!isCurrentUser">
         <div style="text-align: center;" *ngIf="friendShipStatus === 0">
@@ -48,53 +52,4 @@
       </div>
     </ng-template>
   </div>
-  <!-- <div class="right-info">
-    <div *ngIf="isCurrentUser; else hiddenRight">
-      profil visible
-    </div>
-    <ng-template #hiddenRight>
-      profil non visible
-    </ng-template>
-  </div> -->
-<!--  <div class="profile-container">-->
-<!--    <div class="player-information-container">-->
-
-<!--      <div class="text-information">-->
-<!--        <div>-->
-<!--          <h1>Informations</h1>-->
-<!--
-<!--        </div>-->
-
-<!--        <ul class="information-list">-->
-<!--          <li>Email : {{ user?.email }}</li>-->
-<!--          <li>Pseudo : {{ user?.nickname }}</li>-->
-<!--        </ul>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div *ngIf="isCurrentUser">-->
-<!--    <div class="carrouselle-container">-->
-<!--      <div class="carrouselle-title-container">-->
-<!--        <h1>liste d'ami</h1>-->
-<!--      </div>-->
-<!--      <div class="card-container">-->
-<!--        <div *ngFor="let friend of myFriends | slice : 0 : 5; let i = index" class="card-div">-->
-<!--          <app-user-card [user]="friend"></app-user-card>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="carrouselle-container">-->
-<!--      <div class="carrouselle-title-container">-->
-<!--        <h1>Demande d'ami</h1>-->
-<!--      </div>-->
-<!--      <div class="card-container">-->
-<!--        <div-->
-<!--          *ngFor="let fr of receivedFriendRequests | slice : 0 : 5; let i = index"-->
-<!--          class="card-div"-->
-<!--        >-->
-<!--          <app-user-card [user]="fr.from"></app-user-card>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
 </div>

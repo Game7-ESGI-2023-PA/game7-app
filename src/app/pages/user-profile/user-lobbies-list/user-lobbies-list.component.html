@@ -15,7 +15,9 @@
     <div class="col col-2">{{ lobby.master.nickname }}</div>
     <div class="col col-3">{{ getDateString(lobby.createdAt) }}</div>
     <div class="col col-4">{{ lobby.players.length }}/{{ lobby.game.maxPlayers }}</div>
-    <div class="col col-5">{{ lobby.status }}</div>
+    <div class="col col-5">
+      <app-lobby-status [status]="lobby.status"></app-lobby-status>
+    </div>
     <div class="col col-6">
       <app-button label="Voir" (customClick)="redirectToLobby(lobby.id)"></app-button>
     </div>
