@@ -9,6 +9,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TabComponent } from './components/tabs/tab/tab.component';
+import { LobbyStatusComponent } from './components/lobby-status/lobby-status.component';
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -18,7 +19,7 @@ import { TabComponent } from './components/tabs/tab/tab.component';
     ChatComponent,
     TabsComponent,
     TabComponent,
-
+    LobbyStatusComponent,
   ],
   exports: [
     UserCardComponent,
@@ -27,8 +28,8 @@ import { TabComponent } from './components/tabs/tab/tab.component';
     ButtonComponent,
     ChatComponent,
     TabsComponent,
-    TabComponent
-
+    TabComponent,
+    LobbyStatusComponent,
   ],
   imports: [CommonModule, HttpClientModule],
 })
