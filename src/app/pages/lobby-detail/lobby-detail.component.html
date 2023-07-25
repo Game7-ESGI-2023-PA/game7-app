@@ -14,7 +14,7 @@
       </ng-template>
     </div>
     <div *ngIf="isJoined()" class="game-lobby-game">
-      <div *ngIf="lobby?.status === 'playing'; else notStarted" class="game-renderer">
+      <div *ngIf="lobby?.status !== 'pending'; else notStarted" class="game-renderer">
         <app-lobby-play-game
           [currentPlayerNumber]="getMyPlayerNumber()"
           [gamingData]="lobby?.lobbyGamingData"
