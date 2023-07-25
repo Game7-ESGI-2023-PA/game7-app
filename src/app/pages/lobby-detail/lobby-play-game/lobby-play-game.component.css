@@ -12,9 +12,21 @@
 }
 
 .game-logger {
+  display: flex;
+  flex-direction: row;
   margin-top: 1rem;
   border-radius: 0.5rem;
   border: green solid 2px;
   height: 500px;
   overflow-y: scroll;
+}
+
+.game-scoring {
+  padding: 1rem;
+  width: 30%;
+  border-right: #267d1e solid 2px;
+}
+
+.game-logs {
+  padding: 1rem;
 }

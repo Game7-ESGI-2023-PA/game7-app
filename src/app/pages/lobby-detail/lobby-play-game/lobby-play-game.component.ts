@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewE
 import {
   GameDisplay,
   GameError,
+  GameErrorType,
   GameInfo,
   GameInstruction,
   GameState,
@@ -135,7 +136,57 @@ export class LobbyPlayGameComponent implements OnChanges {
     }
   }
 
+  getLastScore() {
+    if(this.info) {
+      const lastInfo = this.info[this.info.length - 1];
+      console.log(lastInfo.game_state.scores);
+      return lastInfo.game_state.scores;
+    }
+    return [];
+  }
+
+  getIsOver() {
+    if(this.info) {
+      const lastInfo = this.info[this.info.length - 1];
+      return lastInfo.game_state.game_over;
+    }
+    return false;
+  }
+
   gameLogs(data: GameInfo | GameError) {
-    return JSON.stringify(data);
+    let finalString = "";
+    if ("requested_actions" in data) {
+      // It's of type GameInfo
+      const gameInfoData: GameInfo = data;
+      const requestedActionString = this.getActionString(gameInfoData.requested_actions);
+
+      finalString += `Action demandée: ${requestedActionString}\n`;
+    } else if ("errors" in data) {
+      // It's of type GameError
+      const gameErrorData: GameError = data;
+      console.log(gameErrorData);
+      const errorDetailString = gameErrorData.errors
+        .map((error) => {
+          if('requested_action' in error) {
+            const actionError = error as GameErrorType
+            return `Type: ${actionError.type}, Joueur: ${actionError.player}, Action demandée: ${this.getActionString([error.requested_action])}`;
+          }
+          else {
+            return "Erreur inconnue";
+          }
+        })
+        .join("\n");
+
+      finalString += `Erreur: ${errorDetailString}\n`;
+    }
+    return finalString;
+  }
+
+  getActionString(gameInst: GameInstruction[]) {
+    return gameInst
+    .map((action) => {
+      return `Type: ${action.type}, Joueur: ${action.player}`;
+    })
+    .join("\n");
   }
 }

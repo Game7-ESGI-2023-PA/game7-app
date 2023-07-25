@@ -2,8 +2,17 @@
   <div (click)="onDivClick($event)" class="game" [innerHtml]="mySvgDisplay"></div>
 </div>
 <div class="game-logger">
-  <div *ngFor="let data of gamingData?.gameState?.reverse()">
-    {{ gameLogs(data) }}
-    <br><br>
+  <div class="game-scoring">
+    <div *ngIf="getIsOver()">Jeu terminé</div>
+    <h3>Scores</h3>
+    <div *ngFor="let score of getLastScore(); let i = index">
+      Joueur {{i+1}}: {{score}}
+    </div>
+  </div>
+  <div class="game-logs">
+    <div *ngFor="let data of gamingData?.gameState">
+      {{ gameLogs(data) }}
+      <br><br>
+    </div>
   </div>
 </div>
