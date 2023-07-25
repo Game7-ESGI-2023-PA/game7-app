@@ -24,7 +24,7 @@
     </ng-container>
   </div>
   <div class="msger-inputarea">
-    <input type="text" class="msger-input" placeholder="Enter your message..." #inputElement>
+    <input type="text" class="msger-input" placeholder="Enter your message..." #inputElement  (keyup.enter)="sendMessage(inputElement.value)">
     <button class="msger-send-btn" (click)="sendMessage(inputElement.value)" >Send</button>
   </div>
 </section>

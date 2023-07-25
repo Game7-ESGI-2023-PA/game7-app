@@ -38,6 +38,20 @@
         </div>
       </div>
     </div>
+    <div *ngIf="isCurrentUser">
+      <div *ngIf="receivedFriendRequests?.length; else noRequests">
+        <div class="received-fr-requests">
+          <div style="text-align: center; font-weight: bold;">Demande d'amis en attentes</div>
+          <app-user-card  *ngFor="let user of receivedFriendRequests" [user]="user.from"></app-user-card>
+        </div>
+      </div>
+      <ng-template #noRequests>
+        Aucune demande en attente.
+      </ng-template>
+    </div>
+
+
+
   </div>
 
   <div class="central-info">

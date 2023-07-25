@@ -26,6 +26,7 @@ export class ChatComponent implements AfterViewInit, OnChanges {
   @Input()
   messages: MessageInterface[] | undefined;
 
+  @ViewChild('inputElement', { static: false }) inputElement!: ElementRef;
   @ViewChild('scrolling') scrollingComponent: ElementRef | undefined;
 
   constructor( private userService : UserService) {}
@@ -34,6 +35,7 @@ export class ChatComponent implements AfterViewInit, OnChanges {
 
   sendMessage(message: string) {
     this.sendMethod.emit(message);
+    this.inputElement.nativeElement.value = '';
     this.scrollChatToBottom(); // TODO: not working on first message after load
   }
 

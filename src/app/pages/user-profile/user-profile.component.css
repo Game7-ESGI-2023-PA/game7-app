@@ -72,3 +72,9 @@
   width: 100%;
   height: 100%;
 }
+
+.received-fr-requests {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
