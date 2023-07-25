@@ -2,10 +2,14 @@
   <app-tabs>
     <app-tab tabTitle="Informations">
       <h2>Game Master</h2>
+      <div class="game-player-tag">Joueur 1</div>
       <app-user-card [user]="this.lobby?.master"></app-user-card>
       <h2>Joueurs ({{this.lobby?.players?.length}}/{{this.lobby?.game?.maxPlayers}})</h2>
       <div *ngIf="getNonMasterPlayers()?.length; else noResults">
-        <app-user-card *ngFor="let result of getNonMasterPlayers()" [user]="result"></app-user-card>
+        <div *ngFor="let result of getNonMasterPlayers(); let i = index">
+          <div class="game-player-tag">Joueur {{ i + 2 }}</div>
+          <app-user-card [user]="result"></app-user-card>
+        </div>
       </div>
       <ng-template #noResults>
         <div style="text-align: center; margin-top: 5vh">Aucun Joueur n'a rejoint le lobby.</div>

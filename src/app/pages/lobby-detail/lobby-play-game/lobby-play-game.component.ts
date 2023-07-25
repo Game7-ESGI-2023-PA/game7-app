@@ -134,4 +134,8 @@ export class LobbyPlayGameComponent implements OnChanges {
       });
     }
   }
+
+  gameLogs(data: GameInfo | GameError) {
+    return JSON.stringify(data);
+  }
 }

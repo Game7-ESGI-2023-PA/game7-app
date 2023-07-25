@@ -2,5 +2,8 @@
   <div (click)="onDivClick($event)" class="game" [innerHtml]="mySvgDisplay"></div>
 </div>
 <div class="game-logger">
-<!-- TODO: divide in two columns one for requested actions, one for logging -->
+  <div *ngFor="let data of gamingData?.gameState?.reverse()">
+    {{ gameLogs(data) }}
+    <br><br>
+  </div>
 </div>
