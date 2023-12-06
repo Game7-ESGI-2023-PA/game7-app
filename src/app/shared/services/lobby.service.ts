@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { LobbyInterface } from '../interfaces/LobbyInterface';
 import { Observable } from 'rxjs';
 import { environment } from "../../../environments/environment";
+import { ApiUrlService } from "./api-url.service";
 
 @Injectable({
   providedIn: 'root',
 })
 export class LobbyService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private apiUrlService: ApiUrlService) {}
 
   create(gameId: string, isPublic: boolean): Observable<LobbyInterface> {
     return this.http.post<LobbyInterface>('/game_lobbies', {
@@ -42,8 +43,8 @@ export class LobbyService {
   }
 
   getLobbyStream(lobbyId: string): Observable<LobbyInterface> {
-    const url = new URL(environment.mercureUrl);
-    url.searchParams.append('topic', `${environment.apiUrl}/game_lobbies/${lobbyId}`);
+    const url = new URL(this.apiUrlService.getMercureUrl());
+    url.searchParams.append('topic', `${this.apiUrlService.getApiUrl()}/game_lobbies/${lobbyId}`);
     return new Observable<LobbyInterface>((observer) => {
       const eventSource = new EventSource(url);
       eventSource.onmessage = (event) => observer.next(JSON.parse(event.data) as LobbyInterface);

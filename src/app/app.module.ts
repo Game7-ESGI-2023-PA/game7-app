@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from "@angular/core";
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,11 @@ import {
   BrowserAnimationsModule,
   NoopAnimationsModule,
 } from '@angular/platform-browser/animations';
+import { ApiUrlService } from "./shared/services/api-url.service";
+
+export function initApiHost(apiUrlService: ApiUrlService) {
+  return () => apiUrlService.loadAppConfig();
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +27,14 @@ import {
     SharedModule,
     PagesModule,
   ],
-  providers: [interceptors],
+  providers: [
+    interceptors,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initApiHost,
+      deps: [ApiUrlService],
+      multi: true,
+    },],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
