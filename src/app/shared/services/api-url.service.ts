@@ -11,7 +11,7 @@ export class ApiUrlService {
   constructor (private http: HttpClient) { }
 
   loadAppConfig() {
-    return this.http.get<ApiUrlsInterface>('/assets/env.json').subscribe(
+    return this.http.get<ApiUrlsInterface>(environment.apiUrlConfig).subscribe(
       data => this.apiUrls = data);
   }
 
@@ -19,14 +19,14 @@ export class ApiUrlService {
     if(this.apiUrls?.apiUrl !== undefined) {
       return this.apiUrls.apiUrl;
     }
-    return environment.apiUrl;
+    return "http://localhost/api";
   }
 
   getMercureUrl(): string {
     if(this.apiUrls?.mercureUrl !== undefined) {
       return this.apiUrls.mercureUrl;
     }
-    return environment.mercureUrl;
+    return "http://localhost/api/.well-known/mercure";
   }
 }
 

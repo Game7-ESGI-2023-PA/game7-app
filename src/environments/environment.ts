@@ -1,6 +1,5 @@
 export const environment = {
-  apiUrl: 'https://api.game7app.com/api',
-  mercureUrl: 'https://api.game7app.com/.well-known/mercure',
+  apiUrlConfig: "/assets/env/env.json",
   name: 'prod',
   production: true,
 };

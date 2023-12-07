@@ -1,6 +1,5 @@
 export const environment = {
-  apiUrl: 'https://localhost/api',
-  mercureUrl: 'https://localhost/.well-known/mercure',
+  apiUrlConfig: "/assets/env/env.json",
   name: 'dev',
   production: false,
 };
